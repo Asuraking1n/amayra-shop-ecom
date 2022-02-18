@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <div className="nav-menu">
       <div className="nav-menu-sec">
       <img src="images/hamburger-black.png" alt="responsive-hamburger" className="responsive-hamburger"/>
-        <div className="menu-box" onMouseOver={()=>{setChangeIcon("images/L-arrow.png")}} onMouseOut={()=>setChangeIcon("images/hamburger.png")} >
+        <div className="menu-box"  onClick={() => props.sideBarView(true)} onMouseOver={()=>{setChangeIcon("images/L-arrow.png")}} onMouseOut={()=>setChangeIcon("images/hamburger.png")}  >
           <div className="nav-menu-icon">
             <img src={changeIcon} alt="menu-icon" />
           </div>
