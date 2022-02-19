@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+
 
 .navbar {
     width: 100%;
     height: 4.5rem;
     display: flex;
-    font-family: 'Dosis', sans-serif;
+    transition: all 2s;
     box-shadow: 5px 5px 45px -5px rgb(143 197 192 / 20%);
 }
 .nav-menu{
@@ -195,6 +195,224 @@
     right: .5rem;
     bottom: 1rem;
 }
+
+
+
+
+
+
+
+/* side search */
+
+.sideSearch-sec{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: -120%;
+    display: flex;
+    opacity: 0;
+    justify-content: flex-end;
+    font-family: 'Dosis';
+    transition: all 1s;
+    background: rgba(168,232,226,0.7);
+}
+.sideSearch-active{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Dosis';
+    z-index: 100;
+    transition: all 1s;
+    background: rgba(168,232,226,0.7);
+}
+.search-cont{
+    height: 100%;
+    width: 30%;
+    padding: 5rem;
+    background-color: rgb(255, 255, 255);
+}
+.search-title{
+    height: auto;
+    width: 75%;
+    color: #a8e8e2;
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    line-height: 44px;
+    font-weight: 600;
+    letter-spacing: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+.search-title img{
+    height: 1rem;
+    margin-top: .5rem;
+    cursor: pointer;
+}
+.search-box{
+    height: 3rem;
+    width: 80%;
+    margin-top: 5rem;
+    display: flex;
+    border-bottom: 2px solid rgb(207, 201, 201);
+}
+.search-box:hover{
+    border-bottom: 2px solid #a8e8e2;
+}
+.search-box input{
+    height: 100%;
+    width: 80%;
+    border: none;
+    outline: none;
+    color: rgb(88, 87, 87);
+}
+.search-icon-img{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.search-icon-img img{
+    height: 40%;
+}
+.search-text{
+    width: 80%;
+    letter-spacing: 2px;
+    line-height: 20px;
+    font-size: .8rem;
+    margin-top: 5rem;
+}
+
+
+
+
+
+/* side bar  */
+.sidebar-section{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: -120%;
+    opacity: 0;
+    font-family: 'Dosis';
+    transition: all 1s;
+    background: rgba(168,232,226,0.7);
+}
+.sidebar-active{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    font-family: 'Dosis';
+    z-index: 10;
+    transition: all 1s;
+    background: rgba(168,232,226,0.7);
+}
+.sideBar-cont{
+    height: 100%;
+    width: 30%;
+    padding: 5rem;
+    background-color: rgb(255, 255, 255);
+}
+.sidebar-cancel img{
+    height: 1.2rem;
+    cursor: pointer;
+}
+.nav-routes-sec{
+    width: 90%;
+    height: auto;
+    margin-top: 4rem;
+}
+.nav-route{
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.nav-route img{
+    height: 30%;
+}
+hr{
+    width: 50px;
+    opacity: 1;
+    display: inline-block;
+    height: 1px;
+    background-color: #a8e8e2;
+    border: none;
+    margin: 0 0 5px 0;
+    padding: 0;
+    box-sizing: content-box;
+    
+}
+.nav-main-route-sec{
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+}
+.nav-main-route{
+    height: 3rem;
+    width: 60%;
+    cursor: pointer;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    
+}
+.nav-route-img{
+    height: 100%;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+.nav-route-img img{
+    height: 40%;
+}
+.nav-social-links{
+    height: 5rem;
+    width: 90%;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-social-links a{
+    text-decoration: none;
+}
+.nav-social-links a img{
+    height: 1.5rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
