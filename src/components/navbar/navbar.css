@@ -5,6 +5,9 @@
     height: 4.5rem;
     display: flex;
     transition: all 2s;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
     box-shadow: 5px 5px 45px -5px rgb(143 197 192 / 20%);
 }
 .nav-menu{
@@ -214,6 +217,7 @@
     justify-content: flex-end;
     font-family: 'Dosis';
     transition: all 1s;
+    z-index: 100;
     background: rgba(168,232,226,0.7);
 }
 .sideSearch-active{
@@ -301,6 +305,7 @@
     top: 0;
     left: -120%;
     opacity: 0;
+    z-index: 100;
     font-family: 'Dosis';
     transition: all 1s;
     background: rgba(168,232,226,0.7);
@@ -313,7 +318,7 @@
     left: 0;
     opacity: 1;
     font-family: 'Dosis';
-    z-index: 10;
+    z-index: 100;
     transition: all 1s;
     background: rgba(168,232,226,0.7);
 }
@@ -445,6 +450,16 @@ hr{
     .nav-cart-data{
         display: none;
     }
+    /* sidebar  */
+    .sideBar-cont{
+        width: 85%;
+    }
+    .nav-main-route{
+        width: 100%;
+    }
+    .nav-routes-sec{
+        width: 100%;
+    }
 }
 
   /* tablet */
@@ -461,4 +476,18 @@ hr{
     .menu-box{
         margin-right: 5rem;
     }
+    /* sidebar  */
+    .sideBar-cont{
+        width: 70%;
+    }
+    .nav-main-route{
+        width: 100%;
+    }
+    .nav-routes-sec{
+        width: 100%;
+    }
+    .search-cont{
+        width: 70%;
+    }
+
 }

@@ -6,7 +6,8 @@
     font-family: 'Dosis', sans-serif;
 }
 .main-cont{
-    height: 100vh;
+    min-height: calc(100vh - 4.5rem);
     width: 100vw;
     overflow: hidden;
+    
 }

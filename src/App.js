@@ -1,18 +1,14 @@
-
-import './App.css';
-import Navbar from './components/navbar/Navbar';
+import "./App.css";
+import BodySection from "./components/bodySection/BodySection";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
-
-
   return (
     <>
-    <div className="main-cont">
-    <Navbar />
-
-    </div>
-    
-    
+      <Navbar />
+      <div className="main-cont">
+        <BodySection />
+      </div>
     </>
   );
 }
