@@ -3,8 +3,22 @@
     width: 100%;
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
     justify-content: space-evenly;
     background-color: #fff;
-    overflow: hidden;
+    overflow-x:auto;
+}
+.tilt-card-section::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+.tilt-card-section::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+
+@media (max-width: 480px) {
+    .tilt-card-section{
+        height: 20rem;
+    }
 }
