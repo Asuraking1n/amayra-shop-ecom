@@ -1,5 +1,5 @@
 import "./App.css";
-import BodySection from "./components/bodySection/BodySection";
+import Homepage from "./components/Homepage";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <>
       <Navbar />
       <div className="main-cont">
-        <BodySection />
+      <Homepage/>
       </div>
     </>
   );
