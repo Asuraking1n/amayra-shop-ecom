@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     background-color: #fff;
+    z-index: 100;
     box-shadow: 5px 5px 45px -5px rgb(143 197 192 / 20%);
 }
 .nav-menu{
