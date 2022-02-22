@@ -3,6 +3,7 @@ import "./homepage.css"
 import BodySection from "./bodySection/BodySection"
 import TiltCard from './cards/tiltCard/TiltCard'
 import MensJacket from './mensJacket/MensJacket'
+import ShoesSection from './shoesSection/ShoesSection'
 const Homepage = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Homepage = () => {
         <TiltCard delay={2} itemCount={9} itemName={"women's dress"} imgSrc={"images/category/women-cloth.jpg"}/>
         </div>
         <MensJacket/>
+        <ShoesSection/>
     </>
   )
 }
