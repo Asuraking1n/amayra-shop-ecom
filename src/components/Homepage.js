@@ -5,6 +5,7 @@ import TiltCard from './cards/tiltCard/TiltCard'
 import MensJacket from './mensJacket/MensJacket'
 import ShoesSection from './shoesSection/ShoesSection'
 import WomenSection from './woMenSection/WomenSection'
+import BestSelling from './bestSelling/BestSelling'
 const Homepage = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const Homepage = () => {
         <MensJacket/>
         <ShoesSection/>
         <WomenSection/>
+        <BestSelling/>
     </>
   )
 }
