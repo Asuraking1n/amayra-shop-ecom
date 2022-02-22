@@ -6,9 +6,71 @@ const Navbar = (props) => {
   const [isSideSearch, setIsSideSearch] = useState(false);
   return (
     <>
+    
       <div className="navbar">
+        {/* side bar */}
+      <div className={isSidebar ? "sidebar-active" : "sidebar-section"}>
+          <div className="sideBar-cont">
+            <div className="sidebar-cancel">
+              <img
+                src="images/cancel.png"
+                alt="cancel"
+                onClick={() => setIsSideBar(false)}
+              />
+            </div>
+            <div className="nav-routes-sec">
+              <div className="nav-route">
+                HOME
+                <img src="images/fill-right-arrow.png" alt="arrow" />
+              </div>
+              <div className="nav-route">
+                shop
+                <img src="images/fill-right-arrow.png" alt="arrow" />
+              </div>
+              <div className="nav-route">
+                about us
+                <img src="images/fill-right-arrow.png" alt="arrow" />
+              </div>
+              <div className="nav-route">
+                Customer Help
+                <img src="images/fill-right-arrow.png" alt="arrow" />
+              </div>
+            </div>
+            <hr />
+            <div className="nav-main-route-sec">
+              <div className="nav-main-route">
+                <div className="nav-route-img">
+                  <img src="images/wish-list.png" alt="wishlist" />
+                </div>
+                Wishlist
+              </div>
+              <div className="nav-main-route">
+                <div className="nav-route-img">
+                  <img src="images/login.png" alt="wishlist" />
+                </div>
+                Login/register
+              </div>
+            </div>
+            <hr />
+            <div className="nav-social-links">
+              <a href="https://www.facebook.com/aryan.king.9484">
+                <img src="images/facebook.png" alt="facebook" />
+              </a>
+              <a href="https://www.instagram.com/the___.inferno/">
+                <img src="images/instagram.png" alt="insta" />
+              </a>
+              <a href="https://www.linkedin.com/in/nishant-kumar-tiwari-253a46196">
+                <img src="images/linkedin.png" alt="linkedin" />
+              </a>
+              <a href="https://github.com/Asuraking1n/">
+                <img src="images/github.png" alt="github" />
+              </a>
+            </div>
+          </div>
+        </div>
         
         <div className="nav-menu">
+        
           <div className="nav-menu-sec">
             <img
               src="images/hamburger-black.png"
@@ -71,66 +133,6 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-      {/* side bar */}
-      <div className={isSidebar ? "sidebar-active" : "sidebar-section"}>
-          <div className="sideBar-cont">
-            <div className="sidebar-cancel">
-              <img
-                src="images/cancel.png"
-                alt="cancel"
-                onClick={() => setIsSideBar(false)}
-              />
-            </div>
-            <div className="nav-routes-sec">
-              <div className="nav-route">
-                HOME
-                <img src="images/fill-right-arrow.png" alt="arrow" />
-              </div>
-              <div className="nav-route">
-                shop
-                <img src="images/fill-right-arrow.png" alt="arrow" />
-              </div>
-              <div className="nav-route">
-                about us
-                <img src="images/fill-right-arrow.png" alt="arrow" />
-              </div>
-              <div className="nav-route">
-                Customer Help
-                <img src="images/fill-right-arrow.png" alt="arrow" />
-              </div>
-            </div>
-            <hr />
-            <div className="nav-main-route-sec">
-              <div className="nav-main-route">
-                <div className="nav-route-img">
-                  <img src="images/wish-list.png" alt="wishlist" />
-                </div>
-                Wishlist
-              </div>
-              <div className="nav-main-route">
-                <div className="nav-route-img">
-                  <img src="images/login.png" alt="wishlist" />
-                </div>
-                Login/register
-              </div>
-            </div>
-            <hr />
-            <div className="nav-social-links">
-              <a href="https://www.facebook.com/aryan.king.9484">
-                <img src="images/facebook.png" alt="facebook" />
-              </a>
-              <a href="https://www.instagram.com/the___.inferno/">
-                <img src="images/instagram.png" alt="insta" />
-              </a>
-              <a href="https://www.linkedin.com/in/nishant-kumar-tiwari-253a46196">
-                <img src="images/linkedin.png" alt="linkedin" />
-              </a>
-              <a href="https://github.com/Asuraking1n/">
-                <img src="images/github.png" alt="github" />
-              </a>
-            </div>
-          </div>
-        </div>
       {/* side search */}
       <div className={isSideSearch ? "sideSearch-active" : "sideSearch-sec"}>
         <div className="search-cont">
@@ -154,6 +156,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
