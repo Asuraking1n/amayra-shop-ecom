@@ -17,8 +17,8 @@ const MensJacket = () => {
             </div>
             <div className="mens-jacket-cont">
             <RatedCard/>
-            <PriceCard/>
             <ColorCard/>
+            <PriceCard/>
             </div>
         </div>
     </div>
