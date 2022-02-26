@@ -154,7 +154,7 @@
 
 
 .product-body-card-sec{
-    height: 100rem;
+    height: auto;
     width: 70%;
     padding: 1.5rem;
 }
@@ -188,6 +188,15 @@
     }
     .filter-active{
         left: 0;
+    }
+    .product-header-heading {
+        font-size: 3rem;
+    }
+    .product-header-cont {
+        height: 10rem;
+    }
+    .category-item {
+        font-size: .6rem;
     }
     .product-body-card-sec{
         height: auto;
