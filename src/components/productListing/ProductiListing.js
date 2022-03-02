@@ -59,7 +59,7 @@ const ProductiListing = () => {
                             </div>
                         </div>
                         <div className="size-filterr-cont">
-                            <div className="f-heading">FILTER BY PRICE</div>
+                            <div className="f-heading">FILTER BY SIZE</div>
                             <div className="size-cont">
                                 <span>l</span>
                                 <span>m</span>
