@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage";
 import Navbar from "./components/navbar/Navbar";
 import ProductiListing from "./components/productListing/ProductiListing";
 import SingleProductPage from "./components/singleProductPage/SingleProductPage";
+import ForgetPassword from "./components/log-reg/ForgetPassword";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           {/* <ProductiListing /> */}
           {/* <SingleProductPage/> */}
           {/* <Login/> */}
-          <Register/>
+          {/* <Register/> */}
+          <ForgetPassword/>
         </div>
       </div>
     </>

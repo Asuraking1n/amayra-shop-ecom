@@ -3,7 +3,7 @@ import "./log-reg.css"
 const Register = () => {
   return (
     <>
-    <div className="log-reg-sec">
+    <div className="log-reg-sec ">
         <form>
             <div className="form-heading">
             Register
