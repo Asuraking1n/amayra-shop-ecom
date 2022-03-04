@@ -1,4 +1,6 @@
 import React from 'react'
+import Footer from '../footer/Footer'
+import Insta from '../instagram/Insta'
 import "./log-reg.css"
 const ForgetPassword = () => {
   return (
@@ -19,6 +21,8 @@ const ForgetPassword = () => {
             </div>
         </form>
     </div>
+    <Insta/>
+    <Footer/>
 </>
   )
 }

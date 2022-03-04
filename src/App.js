@@ -17,9 +17,9 @@ function App() {
           {/* <Homepage/> */}
           {/* <ProductiListing /> */}
           {/* <SingleProductPage/> */}
-          {/* <Login/> */}
+          <Login/>
           {/* <Register/> */}
-          <ForgetPassword/>
+          {/* <ForgetPassword/> */}
         </div>
       </div>
     </>

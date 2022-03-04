@@ -13,7 +13,7 @@ form {
 .form-heading {
   font-size: 40px;
   font-weight: 600;
-  margin-top: 8rem;
+  margin-top: 5rem;
   line-height: 1;
   text-align: center;
   letter-spacing: 2px;
@@ -22,7 +22,7 @@ form {
 .form-username {
   border-radius: 0;
   width: 35%;
-  height: 2.5rem;
+  height: 3rem;
   border: none;
   border-radius: 5px 5px 0 0;
   padding: 0 1rem;
@@ -32,6 +32,7 @@ form {
   font-size: 0.8rem;
   outline: none;
   font-weight: 600;
+  background-color: transparent;
   border-bottom: 1px solid rgb(10 10 10 / 10%);
 }
 .form-btn{
@@ -78,4 +79,37 @@ form button {
     letter-spacing: 1px;
     cursor: pointer;
     color: #000;
+}
+
+
+@media (max-width: 480px)  {
+  .form-username{
+    width: 80%;
+  }
+  .form-btn{
+    width: 80%;
+  }
+  .remember-me-cont{
+    width: 80%;
+  }
+  .form-heading{
+    margin-top: 3rem;
+  }
+}
+
+
+
+@media (min-width: 481px) and (max-width: 810px){
+  .form-username{
+    width: 70%;
+  }
+  .form-btn{
+    width: 70%;
+  }
+  .remember-me-cont{
+    width: 70%;
+  }
+  .form-heading{
+    margin-top: 3rem;
+  }
 }
