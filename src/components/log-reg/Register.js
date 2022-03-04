@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../footer/Footer'
 import Insta from '../instagram/Insta'
 import "./log-reg.css"
+import {Link} from 'react-router-dom'
 const Register = () => {
   return (
     <>
@@ -18,7 +19,7 @@ const Register = () => {
             <div className="form-btn"><button>Let me in</button></div>
             <div className="remember-me-cont">
             <div className="remember-me">
-                or Login
+                  <Link to='/login' className='link'> Login</Link>
             </div>
             <span>Privacy Policy</span>
             </div>
