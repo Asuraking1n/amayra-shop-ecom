@@ -4,7 +4,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    animation: colors 15s infinite 3s;
+    
     
 }
 .background-img{
@@ -19,7 +19,8 @@
     z-index: 1;
     top: 0;
     left: 0;
-    animation: flower-animate infinite 8s ease-in-out 4s;
+    animation: colors 15s infinite 3s;
+    animation: flower-animate infinite 8s ease-in-out 4s,colors 15s infinite 3s;
 }
 .botique{
     font-family: 'Montserrat', sans-serif;
@@ -29,7 +30,7 @@
     font-size: 1.6rem;
     filter: blur(1px);
     color: rgba(0, 0, 0, 0.2);
-    animation: little-big  infinite 8s ease-in-out 2s;
+    animation: little-big  infinite 8s ease-in-out 2s,colors 15s infinite 3s;
 }
 .vintage{
     color: #a8ece6;
@@ -40,7 +41,7 @@
     z-index: 2;
     font-size: 2.7rem;
     filter: blur(.2px);
-    animation: big-little  infinite 7s ease-in-out 0s;
+    animation: big-little  infinite 7s ease-in-out 0s,colors 15s infinite 3s;
 }
 .couture{
     font-family: 'Montserrat', sans-serif;
@@ -51,7 +52,7 @@
     font-size: 2.7rem;
     filter: blur(1.8px);
     color: rgba(0, 0, 0, 0.2);
-    animation: little-big  infinite 4s ease-in-out 2s;
+    animation: little-big  infinite 4s ease-in-out 2s,colors 15s infinite 3s;
 }
 
 .fashion{
@@ -63,7 +64,7 @@
     z-index: 2;
     font-size: 2.7rem;
     filter: blur(2px);
-    animation: big-little-v2  infinite 13s ease-in-out 2s;
+    animation: big-little-v2  infinite 13s ease-in-out 2s,colors 15s infinite 3s;
 }
 .elegence{
     font-family: 'Montserrat', sans-serif;
@@ -74,7 +75,7 @@
     font-size: 1.3rem;
     filter: blur(.5px);
     color: #a8ece6;
-    animation: little-big  infinite 8s ease-in-out 2s;
+    animation: little-big  infinite 8s ease-in-out 2s,colors 15s infinite 3s;
 }
 .homemade{
     color: rgba(0, 0, 0, 0.2);
@@ -85,7 +86,7 @@
     z-index: 2;
     font-size: 2.5rem;
     filter: blur(2px);
-    animation: big-little  infinite 10s ease-in-out 2s;
+    animation: big-little  infinite 10s ease-in-out 2s,colors 15s infinite 3s;
 }
 .unique{
     color: #a8ece6;
@@ -96,7 +97,7 @@
     z-index: 2;
     font-size: 2.5rem;
     filter: blur(2.5px);
-    animation: big-little-v2  infinite 15s ease-in-out 2s;
+    animation: big-little-v2  infinite 15s ease-in-out 2s,colors 15s infinite 3s;
 }
 .appreal{
     color: #a8ece6;
@@ -107,7 +108,7 @@
     z-index: 2;
     font-size: 2rem;
     filter: blur(.2px);
-    animation: big-little  infinite 7s ease-in-out 0s;
+    animation: big-little  infinite 7s ease-in-out 0s,colors 15s infinite 3s;
 }
 .discover{
     font-size: 16rem;
@@ -116,7 +117,7 @@
     bottom: -2rem;
     z-index: 2;
     color: #a8ece6;
-    animation: big-little-v3  infinite 15s linear 2s;
+    animation: big-little-v3  infinite 15s linear 2s,colors 15s infinite 3s;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -154,6 +155,7 @@
     height: 5rem;
     width: 12rem;
     cursor: pointer;
+    animation: colors 15s infinite 3s;
 }
 .shop-now-btn span{
     font-family: sans-serif;
