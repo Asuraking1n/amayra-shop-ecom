@@ -186,6 +186,9 @@
         background-color: #fff;
         transition: all 1s ;
     }
+    .product-filterr-cont{
+        margin-top: 2rem;
+    }
     .filter-active{
         left: 0;
     }

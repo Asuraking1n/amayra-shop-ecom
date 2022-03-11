@@ -1,8 +1,9 @@
 import React from 'react'
 import "./shoescard.css"
+import {Link} from 'react-router-dom'
 const ShoeCard = (props) => {
   return (
-    <>
+    <><Link to='/product-page' className='shoe-card-cont link'>
         <div className="shoe-card-cont">
             <div className="shoe-name">{props.name}</div>
             <div className="shoe-type">{props.type}</div>
@@ -19,7 +20,7 @@ const ShoeCard = (props) => {
             
         </div>
         
-        
+        </Link>
     </>
   )
 }
