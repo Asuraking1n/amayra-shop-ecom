@@ -156,6 +156,7 @@
     width: 5rem;
     display: flex;
     align-items: center;
+    text-decoration: none;
     cursor: pointer;
 }
 .nav-cart img{

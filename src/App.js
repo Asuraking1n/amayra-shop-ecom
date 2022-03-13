@@ -11,6 +11,9 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import WishList from "./components/wishlist/WishList";
+import Cart from "./components/cart/Cart";
+import Error404 from "./components/404errorpage/Error404";
 
 function App() {
   return (
@@ -24,8 +27,11 @@ function App() {
             <Route exact path="/shop" element={<ProductiListing />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/wishlist" element={<WishList/>} />
+            <Route exact path="/cart" element={<Cart/>} />
             <Route exact path="/forget-password" element={<ForgetPassword />} />
             <Route exact path="/product-page" element={<SingleProductPage />} />
+            <Route path="*" element={<Error404/>} />
           </Routes>
 
         </div>
