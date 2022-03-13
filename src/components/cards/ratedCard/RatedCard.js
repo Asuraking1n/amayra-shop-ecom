@@ -3,12 +3,16 @@ import "./ratedcard.css"
 import StarRating from './StarRate'
 import {Link} from 'react-router-dom'
 const RatedCard = (props) => {
+    const isoutOfStock = props.stock
   return (
     <>
     <Link to='/product-page' className='rated-card-cont link'>
         <div className="rated-card-cont">
-            <div className="rated-card-img">
-                <img src={props.imgSrc} alt="card" />
+            <div id="rated-card-img">
+            <img src={props.imgSrcTwo} alt="card" id='cardHoverImg' />
+                <img src={props.imgSrcOne} alt="card" />
+                {isoutOfStock?<div className="outOfStockLabel">Out of stock</div>:null}
+                
             </div>
             <div className="rated-card-content">
                 <StarRating/>

@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import RatedCard from '../cards/ratedCard/RatedCard'
 import PriceCard from '../cards/priceCard/PriceCard'
-import ColorCard from '../cards/ColorChooseCard/ColorCard'
 import Insta from '../instagram/Insta'
 import Footer from '../footer/Footer'
 import "./productlisting.css"
@@ -98,18 +97,18 @@ const ProductiListing = () => {
                     </div>
                     <div className="product-body-card-sec">
                         <div className="product-cat-item">
-                           <span> Showing 16 results
+                            <span> Showing 16 results
                             <img src="images/filter.png" alt="filter" className='filter-img' onClick={()=>setIsfilter("filter-active")}/></span>
                             <div className="product-card-cont">
-                                <RatedCard imgSrc="images/card/shirt-1.jpeg" name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"} />
-                                <ColorCard />
-                                <PriceCard imgSrc={"images/card/shirt-2.jpeg"} name={"SELECTED HOME OVERCOAT"} />
-                                <PriceCard imgSrc={"images/card/women-1.jpeg"} name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"} />
-                                <RatedCard imgSrc="images/card/women-2.jpeg" name={"FAME AND PARTNERS TALL VALENCIA MAXI DRESS"} />
-                                <PriceCard imgSrc={"images/card/women-3.jpeg"} name={"LAVISH ALICE DEEP BANDEAU ASYMMETRIC HEM MIDI DRESS"} />
-                                <ColorCard />
-                                <PriceCard imgSrc={"images/card/women-1.jpeg"} name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"}/>
-                                <RatedCard imgSrc="images/card/shirt-1.jpeg" name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"} />
+                                <RatedCard imgSrcTwo={'images/card/shirt-2.jpeg'} imgSrcOne={"images/card/shirt-1.jpeg"} stock={false} name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"} />
+                                
+                                <PriceCard imgSrcTwo={'images/card/shirt-1.jpeg'} imgSrcOne={"images/card/shirt-2.jpeg"} stock={true} name={"SELECTED HOME OVERCOAT"} />
+                                <PriceCard imgSrcTwo={'images/card/women-2.jpeg'} imgSrcOne={"images/card/women-1.jpeg"} stock={true} name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"} />
+                                <RatedCard imgSrcTwo={'images/card/women-1.jpeg'} imgSrcOne="images/card/women-2.jpeg" stock={true} name={"FAME AND PARTNERS TALL VALENCIA MAXI DRESS"} />
+                                <PriceCard imgSrcTwo={'images/card/women-2.jpeg'} imgSrcOne={"images/card/women-3.jpeg"} name={"LAVISH ALICE DEEP BANDEAU ASYMMETRIC HEM MIDI DRESS"} />
+                                
+                                <PriceCard imgSrcTwo={'images/card/women-2.jpeg'} imgSrcOne={"images/card/women-1.jpeg"} stock={true} name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"}/>
+                                <RatedCard imgSrcTwo={'images/card/shirt-2.jpeg'} imgSrcOne="images/card/shirt-1.jpeg" stock={true} name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"} />
                             </div>
                         </div>
                     </div>
