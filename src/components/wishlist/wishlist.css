@@ -2,7 +2,7 @@
     min-height: 25rem;
     width: 100%;
     max-height: auto;
-    background: url(../../../public/images/shop-header-bg.jpg) no-repeat center center/cover;
+    background: url(../../images/shop-header-bg.jpg) no-repeat center center/cover;
 }
 .wishlist-sec-heading{
     font-weight: 600;
