@@ -33,8 +33,8 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="nav-route">
-                <Link to='/about-us' className="nav-route">
-                  about us
+                <Link to='/contact-us' className="nav-route">
+                  contact us
                   <img src="images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
