@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    background: url(../../../public/images/shop-header-bg.jpg) no-repeat center center/cover;
+    background: url(../../images/shop-header-bg.jpg) no-repeat center center/cover;
 }
 .product-header-heading{
     letter-spacing: 1px;

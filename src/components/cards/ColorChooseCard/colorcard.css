@@ -41,7 +41,7 @@
     opacity: 0;
     transition: opacity 1s ease,transform 2s cubic-bezier(0,0,.44,1.18),-webkit-transform 2s cubic-bezier(0,0,.44,1.18);
     content: "";
-    background: url(../../../../public/images/card/jacket-1.jpg) no-repeat center center/cover;
+    background: url(../../../images/card/jacket-1.jpg) no-repeat center center/cover;
 }
 .color-card-img:hover::before{
     

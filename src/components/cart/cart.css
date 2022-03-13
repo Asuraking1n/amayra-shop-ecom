@@ -1,7 +1,7 @@
 .cart-container-section{
     height: auto;
     width: 100%;
-    background: url(../../../public/images/shop-header-bg.jpg) no-repeat center center/cover;
+    background: url(../../images/shop-header-bg.jpg) no-repeat center center/cover;
 }
 
 .cart-container-heading{
