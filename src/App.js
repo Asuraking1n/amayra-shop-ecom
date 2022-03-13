@@ -1,42 +1,45 @@
 import "./App.css";
-import logo from "./logo.png";
+import Login from "./components/log-reg/Login";
+import Register from "./components/log-reg/Register";
+import Homepage from "./components/Homepage";
+import Navbar from "./components/navbar/Navbar";
+import ProductiListing from "./components/productListing/ProductiListing";
+import SingleProductPage from "./components/singleProductPage/SingleProductPage";
+import ForgetPassword from "./components/log-reg/ForgetPassword";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import WishList from "./components/wishlist/WishList";
+import Cart from "./components/cart/Cart";
+import Error404 from "./components/404errorpage/Error404";
+import ContactUs from './components/contact/ContactUs'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
+    <><Router>
+      <Navbar />
+      <div style={{ height: 'auto', width: 'auto', overflow: 'hidden', position: 'relative' }}>
+        <div className="main-cont">
+
+          <Routes>
+            <Route exact path="/" element={<Homepage />} />
+            <Route exact path="/shop" element={<ProductiListing />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/wishlist" element={<WishList/>} />
+            <Route exact path="/cart" element={<Cart/>} />
+            <Route exact path="/contact-us" element={<ContactUs/>} />
+            <Route exact path="/forget-password" element={<ForgetPassword />} />
+            <Route exact path="/product-page" element={<SingleProductPage />} />
+            <Route path="*" element={<Error404/>} />
+          </Routes>
+
         </div>
-      </header>
-    </div>
+      </div>
+    </Router>
+    </>
   );
 }
 

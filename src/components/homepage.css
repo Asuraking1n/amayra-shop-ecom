@@ -1,0 +1,46 @@
+.tilt-card-section{
+    height: 35rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #fff;
+    overflow-x:auto;
+}
+.tilt-card-section::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+.tilt-card-section::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+.cursor {
+    z-index: 200000;
+    background: #2696e8;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #2696e8, 0 0 60px #2696e8, 0 0 100px #2696e8;
+    animation: colors 5s infinite;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    pointer-events: none;
+  }
+  .cursor::before {
+    content: "";
+    position: absolute;
+    background: #2696e8;
+    width: 50px;
+    height: 50px;
+    opacity: 0.2;
+    transform: translate(-30%, -30%);
+    border-radius: 50%;
+  }
+  
+
+
+@media (max-width: 480px) {
+    .tilt-card-section{
+        height: 20rem;
+    }
+}
