@@ -71,13 +71,20 @@
     border-left:2px solid #a8e8e2;
     padding-right: 2px;
     letter-spacing: 2px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     margin-left: 1rem;
+    transition: all 1s ease;
 }
 .product-cat-sub-item span{
     color: #a8e8e2;
     font-weight: 600;
+}
+.product-cat-sub-item:hover{
+    background-color: #a8e8e2;
+    border-radius: 5px
+    
 }
 .size-filterr-cont{
     width: 70%;
@@ -110,6 +117,7 @@
     text-transform: uppercase;
     transition: all 0.6s cubic-bezier(.19,1,.22,1);
     border-radius: 2px;
+    cursor: pointer;
     margin:.3rem;
     cursor: pointer;
 }
@@ -215,8 +223,8 @@
     }
     .product-card-cont{
         align-items: baseline;
-        width: 100rem;
-        flex-wrap: nowrap;
+        width: 100%;
+        flex-wrap: wrap;
     }
     .product-cat-item span{
         display: flex;

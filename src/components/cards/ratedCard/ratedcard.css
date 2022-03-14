@@ -72,6 +72,7 @@
     padding: 0.3rem;
     position: relative;
     height: 2.2rem;
+    margin-top: 1rem;
     overflow: hidden;
     transition: all .8s;
 }
@@ -131,6 +132,7 @@
 
   @media (max-width: 480px) {
     .rated-card-cont{
+        margin: 0.8rem;
         height:auto;
         width: 10rem;
         cursor: pointer;
