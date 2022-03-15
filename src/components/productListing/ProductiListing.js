@@ -33,6 +33,10 @@ const filterData = (arr, type) => {
             return [...arr].filter((val) => val.size === 'US7')
         case 'US6':
             return [...arr].filter((val) => val.size === 'US6')
+        case 'HIGH_TO_LOW':
+            return [...arr].sort((a, b) => b.price - a.price)
+        case 'LOW_TO_HIGH':
+            return [...arr].sort((a, b) => a.price - b.price)
         default:
             return [...arr]
     }
@@ -60,11 +64,10 @@ const ProductiListing = () => {
                     <div className="shop-header-category">
                         <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'ALL' }) }}>all</div>
                         <span>/</span>
-                        <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'ALL' }) }}>ACCESSORIES</div>
+                        <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'SHOES' }) }}>shoes</div>
+
                         <span>/</span>
                         <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'CLOTHING' }) }}>clothing</div>
-                        <span>/</span>
-                        <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'SHOES' }) }}>shoes</div>
                     </div>
                 </div>
 
@@ -82,10 +85,7 @@ const ProductiListing = () => {
                             </div>
                             <div className="product-cat-item">
                                 Clothing
-                                <div className="product-cat-sub-item" onClick={() => { dispatch({ type: 'SORT', payload: 'MEN' }) }}>
-                                    <span>-</span>
-                                    Men's Jackets
-                                </div>
+
                                 <div className="product-cat-sub-item" onClick={() => { dispatch({ type: 'SORT', payload: 'MEN' }) }}>
                                     <span>-</span>
                                     Men's Shirts
@@ -94,10 +94,7 @@ const ProductiListing = () => {
                                     <span>-</span>
                                     Women's Dresses
                                 </div>
-                                <div className="product-cat-sub-item" onClick={() => { dispatch({ type: 'SORT', payload: 'WOMEN' }) }}>
-                                    <span>-</span>
-                                    Women's Jackets
-                                </div>
+
                             </div>
                             <div className="product-cat-item">Shoes</div>
                         </div>
@@ -112,6 +109,13 @@ const ProductiListing = () => {
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US7' }) }}>us 7</span>
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US8' }) }}>us 8</span>
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US9' }) }}>us 9</span>
+                            </div>
+                        </div>
+                        <div className="size-filterr-cont">
+                            <div className="f-heading">FILTER BY PRICE</div>
+                            <div className="size-cont">
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'HIGH_TO_LOW' }) }}>HIGH TO LOW</span>
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'LOW_TO_HIGH' }) }}>LOW TO HIGH</span>
                             </div>
                         </div>
                         <div className="product-filterr-cont">
@@ -141,7 +145,7 @@ const ProductiListing = () => {
                     <div className="product-body-card-sec">
                         <div className="product-cat-item">
                             <span>
-                                Showing {state.filterStore.length>0?state.filterStore.length:products.length} results
+                                Showing {state.filterStore.length > 0 ? state.filterStore.length : products.length} results
                                 <img
                                     src="images/filter.png"
                                     alt="filter"
@@ -154,14 +158,14 @@ const ProductiListing = () => {
                                     state.filterStore.map((val, index) => {
                                         return (
                                             <div key={index}>
-                                                <RatedCard imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price}/>
+                                                <RatedCard imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price} />
                                             </div>
                                         )
                                     }) :
                                     products.map((val, index) => {
                                         return (
                                             <div key={index}>
-                                                <RatedCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type}  price={val.price}/>
+                                                <RatedCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price} />
                                             </div>
                                         )
                                     })
