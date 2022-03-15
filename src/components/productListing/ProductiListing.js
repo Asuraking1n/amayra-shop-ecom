@@ -51,7 +51,6 @@ const ProductiListing = () => {
                 return state
         }
     }, { filterStore: [] })
-    console.log('Length' + state.filterStore.length)
     return (
         <>
 
@@ -162,7 +161,7 @@ const ProductiListing = () => {
                                     products.map((val, index) => {
                                         return (
                                             <div key={index}>
-                                                <RatedCard imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type}  price={val.price}/>
+                                                <RatedCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type}  price={val.price}/>
                                             </div>
                                         )
                                     })

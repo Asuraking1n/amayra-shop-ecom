@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 
 /**
  * Product Database can be added here.
@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: 'jrwngwngn-wjrngowrkglwrk-glkg',
     title: "FAME AND PARTNERS TALL VALENCIA MAXI DRESS",
     price: "4999",
     tags:'women',
@@ -23,7 +23,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/10/6369928-3.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'gkwrmlg-rwgjnwkjgf-rgwjrg',
     title: "OUT FROM UNDER STARDUST SLIP DRESS",
     price: "7999",
     tags:'women',
@@ -39,7 +39,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2017/01/stardust-slip-black-02.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'lekmfemklg-jwngf-jwek',
     title: "AVIATOR JACKET IN FAUX SUEDE",
     price: "2999",
     tags:'women',
@@ -55,7 +55,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/11/6950715-3.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmklmqlkfm-bfkqkf-ldjk',
     title: "MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP",
     price: "699",
     tags:'women',
@@ -71,7 +71,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/11/7071727-4.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmklmqlkfm-kjkwje-jjnjq',
     title: "DEEP ONE SHOULDER MIDI BODYCON DRESS",
     price: "999",
     tags:'women',
@@ -87,7 +87,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/12/7183324-4.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'kakjfaklefk-bfkqkf-jjnjq',
     title: "MONKI LONGLINE WOVEN TOP",
     price: "8888",
     tags:'women',
@@ -103,7 +103,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/11/7100131-1-green.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmklmqlkfm-bfkqkf-jjnjq',
     title: "ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT",
     price: "2999",
     tags:'men',
@@ -119,7 +119,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/11/6833618-3.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'keflskldm5mds-bfkqkf-jjnjq',
     title: "SKINNY SHIRT IN KHAKI TWILL",
     price: "2499",
     tags:'men',
@@ -135,7 +135,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/10/5796822-4.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmklmqlkfm-bfkq-kfwlownjq',
     title: "SKINNY SHIRT IN KHAKI TWILL WITH SHORT SLEEVES",
     price: "2499",
     tags:'men',
@@ -151,8 +151,8 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/10/6026004-3.jpg'
   },
   {
-    _id: uuid(),
-    title: "UNITED COLORS OF BENETTON FAUX SHEARLING HOODED JACKET",
+    _id:' kefmklmql-jdjkqkf-jjnjq',
+    title: "UNITED COLORS OF BENETTON  HOODED JACKET",
     price: "6499",
     tags:'men',
     size:'L',
@@ -167,7 +167,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/10/7038094-3.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmklakdl-lkfm-bfkqkf-jjnjq',
     title: "RIVER ISLAND SKINNY FIT BLAZER IN LIGHT BLUE",
     price: "5559",
     tags:'men',
@@ -183,7 +183,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/10/6274395-1-lightblue.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'keffea-vlkfm-bfkqkf-jjnjq',
     title: "SELECTED HOMME OVERCOAT",
     price: "2555",
     tags:'men',
@@ -199,7 +199,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/11/6673031-3.jpeg'
   },
   {
-    _id: uuid(),
+    _id: 'kefmkfd-qlkfm-bfkqkf-jjnjq',
     title: "NEW BALANCE 996 RUNNING TRAINERS",
     price: "2200",
     tags:'men',
@@ -215,7 +215,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2017/02/5319455539121_006_d-1.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'ejrhfhw-klmqlkfm-bfkqkf-jjnjq',
     title: "NEW BALANCE 996 RUNNING TRAINERS",
     price: "1999",
     tags:'men',
@@ -231,7 +231,7 @@ export const products = [
     imgFour:'https://eva.temashdesign.me/fashion/wp-content/uploads/sites/2/2016/12/nb-996-5.jpg'
   },
   {
-    _id: uuid(),
+    _id: 'kkmwe-lmqlkfm-bfkqkf-jjnjq',
     title: "VANS OLD SKOOL ULTRAMARINE",
     price: "599",
     tags:'men',
