@@ -1,6 +1,6 @@
 import React from "react";
-import RatedCard from "../cards/ratedCard/RatedCard";
-import PriceCard from "../cards/priceCard/PriceCard"
+// import RatedCard from "../cards/ratedCard/RatedCard";
+// import PriceCard from "../cards/priceCard/PriceCard"
 import ColorCard from "../cards/ColorChooseCard/ColorCard"
 import "./mensjacket.css"
 const MensJacket = () => {
@@ -16,9 +16,11 @@ const MensJacket = () => {
             <span>AMAYRA'S SHOP CHOICE</span>
             </div>
             <div className="mens-jacket-cont">
-            <RatedCard imgSrc="images/card/shirt-1.jpeg" name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"}/>
             <ColorCard />
-            <PriceCard imgSrc={"images/card/shirt-2.jpeg"} name={"SELECTED HOME OVERCOAT"}/>
+            <ColorCard />
+            {/* <RatedCard imgOne="/images/card/shirt-1.jpeg" name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"}/> */}
+            <ColorCard />
+            {/* <PriceCard imgOne={"/images/card/shirt-2.jpeg"} name={"SELECTED HOME OVERCOAT"}/> */}
             </div>
         </div>
     </div>

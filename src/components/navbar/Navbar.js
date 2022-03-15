@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {  Link } from "react-router-dom";
 import "./navbar.css";
 const Navbar = () => {
-  const [changeIcon, setChangeIcon] = useState("images/hamburger.png");
+  const [changeIcon, setChangeIcon] = useState("/images/hamburger.png");
   const [isSidebar, setIsSideBar] = useState(false);
   const [isSideSearch, setIsSideSearch] = useState(false);
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="sideBar-cont">
             <div className="sidebar-cancel">
               <img
-                src="images/cancel.png"
+                src="/images/cancel.png"
                 alt="cancel"
                 onClick={() => setIsSideBar(false)}
               />
@@ -23,25 +23,25 @@ const Navbar = () => {
               <div className="nav-route">
                 <Link to='/' className="nav-route">
                   HOME
-                  <img src="images/fill-right-arrow.png" alt="arrow" />
+                  <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
               <div className="nav-route">
                 <Link to='/shop' className="nav-route">
                   shop
-                  <img src="images/fill-right-arrow.png" alt="arrow" />
+                  <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
               <div className="nav-route">
                 <Link to='/contact-us' className="nav-route">
                   contact us
-                  <img src="images/fill-right-arrow.png" alt="arrow" />
+                  <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
               <div className="nav-route">
                 <Link to='/customer' className="nav-route">
                   Customer Help
-                  <img src="images/fill-right-arrow.png" alt="arrow" />
+                  <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
             </div>
@@ -50,7 +50,7 @@ const Navbar = () => {
               <div className="nav-main-route">
                 <Link to='/wishlist' className="nav-main-route">
                   <div className="nav-route-img">
-                    <img src="images/wish-list.png" alt="wishlist" />
+                    <img src="/images/wish-list.png" alt="wishlist" />
                   </div>
                   Wishlist
                 </Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
               <div className="nav-main-route">
 
                 <div className="nav-route-img">
-                  <img src="images/login.png" alt="wishlist" />
+                  <img src="/images/login.png" alt="wishlist" />
                 </div>
                 <Link to='/login' className="link-class">
                   Login</Link>/<Link to='/register' className="link-class" >register</Link>
@@ -67,16 +67,16 @@ const Navbar = () => {
             <hr />
             <div className="nav-social-links">
               <a href="https://www.facebook.com/aryan.king.9484">
-                <img src="images/facebook.png" alt="facebook" />
+                <img src="/images/facebook.png" alt="facebook" />
               </a>
               <a href="https://www.instagram.com/the___.inferno/">
-                <img src="images/instagram.png" alt="insta" />
+                <img src="/images/instagram.png" alt="insta" />
               </a>
               <a href="https://www.linkedin.com/in/nishant-kumar-tiwari-253a46196">
-                <img src="images/linkedin.png" alt="linkedin" />
+                <img src="/images/linkedin.png" alt="linkedin" />
               </a>
               <a href="https://github.com/Asuraking1n/">
-                <img src="images/github.png" alt="github" />
+                <img src="/images/github.png" alt="github" />
               </a>
             </div>
           </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
 
           <div className="nav-menu-sec">
             <img
-              src="images/hamburger-black.png"
+              src="/images/hamburger-black.png"
               alt="responsive-hamburger"
               className="responsive-hamburger"
               onClick={() => setIsSideBar(true)}
@@ -95,9 +95,9 @@ const Navbar = () => {
               className="menu-box"
               onClick={() => setIsSideBar(true)}
               onMouseOver={() => {
-                setChangeIcon("images/L-arrow.png");
+                setChangeIcon("/images/L-arrow.png");
               }}
-              onMouseOut={() => setChangeIcon("images/hamburger.png")}
+              onMouseOut={() => setChangeIcon("/images/hamburger.png")}
             >
               <div className="nav-menu-icon">
                 <img src={changeIcon} alt="menu-icon" />
@@ -111,14 +111,14 @@ const Navbar = () => {
         </div>
         <div className="nav-logo">
         <Link to='/' className="nav-logo">
-          <img src="images/logo1.jpeg" alt="logo"  />
+          <img src="/images/logo1.jpeg" alt="logo"  />
           </Link>
         </div>
         <div className="nav-buttons">
           <div className="nav-btn-cont">
             <div className="nav-search" onClick={() => setIsSideSearch(true)}>
               <img
-                src="images/search.png"
+                src="/images/search.png"
                 alt="search"
                 className="nav-btn-icon"
               />
@@ -126,7 +126,7 @@ const Navbar = () => {
             <div className="nav-wishlist ">
             <Link to='wishlist' className="nav-wishlist ">
               <img
-                src="images/wish-list.png"
+                src="/images/wish-list.png"
                 alt="wishlist"
                 className="nav-btn-icon"
               />
@@ -141,7 +141,7 @@ const Navbar = () => {
               </div>
               <div className="nav-cart-icon-sec">
                 <img
-                  src="images/cart.png"
+                  src="/images/cart.png"
                   alt="cart"
                   className="nav-btn-icon"
                 />
@@ -160,7 +160,7 @@ const Navbar = () => {
           <div className="search-title">
             <b>SEARCH</b>
             <img
-              src="images/cancel.png"
+              src="/images/cancel.png"
               alt="cancel"
               onClick={() => setIsSideSearch(false)}
             />
@@ -168,7 +168,7 @@ const Navbar = () => {
           <div className="search-box">
             <input type="text" placeholder="Search for :" />
             <div className="search-icon-img">
-              <img src="images/search-light.png" alt="search" />
+              <img src="/images/search-light.png" alt="search" />
             </div>
           </div>
           <div className="search-text">

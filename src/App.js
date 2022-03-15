@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import ProductiListing from "./components/productListing/ProductiListing";
 import SingleProductPage from "./components/singleProductPage/SingleProductPage";
 import ForgetPassword from "./components/log-reg/ForgetPassword";
+import Mockman from "mockman-js";
 import {
   BrowserRouter as Router,
   Routes,
@@ -30,9 +31,10 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/wishlist" element={<WishList/>} />
             <Route exact path="/cart" element={<Cart/>} />
+            <Route exact path="/mockman" element={<Mockman/>} />
             <Route exact path="/contact-us" element={<ContactUs/>} />
             <Route exact path="/forget-password" element={<ForgetPassword />} />
-            <Route exact path="/product-page" element={<SingleProductPage />} />
+            <Route exact path="/shop/:id" element={<SingleProductPage />} />
             <Route path="*" element={<Error404/>} />
           </Routes>
 

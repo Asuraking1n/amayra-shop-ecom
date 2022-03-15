@@ -1,76 +1,111 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import StarRate from "../cards/ratedCard/StarRate";
 import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import AdditionalInfo from "./AdditionalInfo";
 import Review from "./Review";
+import {useParams,Link} from 'react-router-dom'
 import "./singlepage.css";
+import axios from "axios";
+
 const SingleProductPage = () => {
-  const [imgShow, setImgShow] = useState("images/singlepage/image1.jpg");
+  const {id} = useParams();
   const [isReview, setIsReview] = useState(false);
+  const [productData,setProductData] = useState([]);
+  const [reviewData,setReviewData] = useState({
+    name:'',
+    email:'',
+    review:''
+  })
+  const [imgShow, setImgShow] = useState('');
+
+
+  useEffect(()=>{
+    axios.get(`/api/products/${id}`)
+    .then(response=>setProductData(response.data.product) )
+    .catch((e)=>console.log(e))
+  },[id])
+
+  let name,val
+  const handelReview=(e)=>{
+    name = e.target.name
+    val = e.target.value
+    setReviewData({...reviewData,[name]:val})
+  }
+  
+
   return (
-    <>
+    <>{!productData?
+    (
+      <>
+      <div className="error-sec">
+        <img src="https://c.tenor.com/51cJwccNPl4AAAAi/capoo-bugcat.gif" alt="load" /> 
+        <span>Sorry we got some Error. Please go back</span>
+        </div>
+      </>
+    )
+    :(<>
       <div className="single-product-sec-cont">
         <div className="single-product-cont">
           <div className="single-product-img-sec">
             <div className="img-sec-small">
               <div className="smallimg-item">
                 <img
-                  src="images/singlepage/image1.jpg"
-                  onClick={() => setImgShow("images/singlepage/image1.jpg")}
+                  src={productData.imgOne}
+                  onClick={() => setImgShow(productData.imgOne)}
                   alt="item"
                 />
               </div>
               <div className="smallimg-item">
                 <img
-                  src="images/singlepage/subimage1.jpg"
-                  onClick={() => setImgShow("images/singlepage/subimage1.jpg")}
+                  src={productData.imgTwo}
+                  onClick={() => setImgShow(productData.imgTwo)}
                   alt="item"
                 />
               </div>
               <div className="smallimg-item">
                 <img
-                  src="images/singlepage/subimage2.jpg"
-                  onClick={() => setImgShow("images/singlepage/subimage2.jpg")}
+                  src={productData.imgThree}
+                  onClick={() => setImgShow(productData.imgThree)}
                   alt="item"
                 />
               </div>
               <div className="smallimg-item">
                 <img
-                  src="images/singlepage/subimage3.jpg"
-                  onClick={() => setImgShow("images/singlepage/subimage3.jpg")}
+                  src={productData.imgFour}
+                  onClick={() => setImgShow(productData.imgFour)}
                   alt="item"
                 />
               </div>
             </div>
             <div className="img-sec-main-img">
-              <img src={imgShow} alt="main" />
+              <img src={ imgShow.length<1?productData.imgOne:imgShow} alt="main" />
             </div>
           </div>
           <div className="single-product-description">
             <div className="go-back">
-              <img src="images/fill-right-arrow.png" alt="arrow" />
+            <Link to='/shop' className="go-back">
+              <img src="/images/fill-right-arrow.png" alt="arrow" />
               BACK
+            </Link>
             </div>
             <StarRate />
             <div className="product-name">
-              FAME AND PARTNERS TALL VALENCIA MAXI DRESS
+              {productData.title}
             </div>
             <div className="product-price">
-              <span>₹500</span>
-              ₹400
+              <span>₹10000</span>
+              ₹{productData.price}
             </div>
             <p className="product-des">
-              With an eye to the catwalks, Fame and Partners Tall apply their
-              cool and individual style to a collection of hand-curated designs,
-              exclusively for ASOS.
+              {productData.description}
             </p>
             <div className="product-card-btn-cont">
               <input type="text" placeholder="1" />
               <span>add to cart</span>
             </div>
             <div className="add-to-wishlist">
-              <img src="images/like.png" alt="heart" />
+              <img src="/images/like.png" alt="heart" />
               add to wishlist
             </div>
           </div>
@@ -78,11 +113,11 @@ const SingleProductPage = () => {
         <div className="product-tags">
           <div className="products-cat">
             <span>Categories:</span>
-            Clothing, Women's Dresses
+            {productData.categoryName}
           </div>
           <div className="products-cat">
             <span>Tags:</span>
-            dress, green
+            {productData.tags}
           </div>
         </div>
         <div className="review-additionInfo-cont">
@@ -90,7 +125,7 @@ const SingleProductPage = () => {
           <span onClick={() => setIsReview(true)}>reviews</span>
         </div>
         {!isReview ? (
-          <AdditionalInfo />
+          <AdditionalInfo size={productData.size}/>
         ) : (
           <div className="review-sec">
             <div className="show-review-sec">
@@ -109,11 +144,11 @@ const SingleProductPage = () => {
                 <div className="mini-heading">
                   your rating <span>*</span>
                 </div>
-                <textarea id="input-review"></textarea>
+                <textarea onChange={handelReview} value={reviewData.review} name="review" id="input-review"></textarea>
               </div>
               <div className="review-name-email">
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
+                <input onChange={handelReview} value={reviewData.name} name='name' type="text" placeholder="Name" />
+                <input onChange={handelReview} value={reviewData.email} name='email' type="email" placeholder="Email" />
               </div>
               <span className="review-submit-btn">Submit</span>
             </div>
@@ -122,6 +157,7 @@ const SingleProductPage = () => {
         <Insta />
         <Footer />
       </div>
+      </>)}
     </>
   );
 };
