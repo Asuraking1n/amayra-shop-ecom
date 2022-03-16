@@ -1,32 +1,23 @@
 import React from "react";
 import "./bestselling.css";
-import ColorCard from "../cards/ColorChooseCard/ColorCard"
-// import PriceCard from "../cards/priceCard/PriceCard"
+import {useProduct} from '../../context/product-context'
+import PriceCard from "../cards/priceCard/PriceCard"
 const BestSelling = () => {
+  const {products} = useProduct()
   return (
     <>
       <div className="best-selling-sec">
         <div className="bestselling-title">BEST SELLING PRODUCTS</div>
         <div className="scrolling-cont">
         <div className="best-selling-card-cont">
-        <ColorCard />
-        <ColorCard />
-        <ColorCard />
-        <ColorCard />
-          {/* <PriceCard
-            imgSrc={"images/card/women-1.jpeg"}
-            name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"}
-          />
-
-          <PriceCard
-            imgSrc={"images/card/women-3.jpeg"}
-            name={"LAVISH ALICE DEEP BANDEAU ASYMMETRIC HEM MIDI DRESS"}
-          />
-          <PriceCard
-            imgSrc={"images/card/shirt-2.jpeg"}
-            name={"SELECTED HOME OVERCOAT"}
-          /> */}
-          <ColorCard />
+        {products.slice(4,9).map((val,index)=>{
+                return(
+                    <div key={index}>
+                    <PriceCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price}/>
+                    </div>
+                )
+            })}
+          
         </div>
         </div>
         

@@ -1,9 +1,9 @@
 import React from "react";
-// import RatedCard from "../cards/ratedCard/RatedCard";
-// import PriceCard from "../cards/priceCard/PriceCard"
-import ColorCard from '../cards/ColorChooseCard/ColorCard'
+import PriceCard from "../cards/priceCard/PriceCard"
+import {useProduct} from '../../context/product-context'
 import "./womensection.css"
 const WomenSection = () => {
+    const {products} = useProduct()
     return <>
     <div className="mensjacket-sec">
     <div className="mens-jacket-sec-card-cont">
@@ -13,12 +13,13 @@ const WomenSection = () => {
             <span>AMAYRA'S SHOP CHOICE</span>
             </div>
             <div className="womens-jacket-cont">
-            <ColorCard />
-            <ColorCard />
-            <ColorCard />
-            {/* <PriceCard imgSrc={"images/card/women-1.jpeg"} name={"MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP"}/> */}
-            {/* <RatedCard imgSrc="images/card/women-2.jpeg" name={"FAME AND PARTNERS TALL VALENCIA MAXI DRESS"}/> */}
-            {/* <PriceCard imgSrc={"images/card/women-3.jpeg"} name={"LAVISH ALICE DEEP BANDEAU ASYMMETRIC HEM MIDI DRESS"}/> */}
+            {products.slice(0,3).map((val,index)=>{
+                return(
+                    <div key={index}>
+                    <PriceCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price}/>
+                    </div>
+                )
+            })}
             </div>
         </div>
     </div>
