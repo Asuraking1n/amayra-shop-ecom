@@ -5,7 +5,7 @@ const RatedCard = (props) => {
     const isoutOfStock = props.stock
   return (
     <>
-    <Link to='/product-page' className='price-card-cont link'>
+    
         <div className="price-card-cont">
             <div id="price-card-img">
             <img src={props.imgSrcTwo} alt="card" id='cardHoverImg' />
@@ -16,15 +16,17 @@ const RatedCard = (props) => {
             <div className="rated-card-content">
                 <div className="card-content-type">{props.type}</div>
                 <div className="card-content-name-like">
+                <Link to={`/shop/` + props.pID} className="card-content-name-like">
                     <div className="card-content-name">{props.name}</div>
                     <div className="card-like"> <img src="images/like.png" alt="like" /></div>
+                </Link>
                 </div>
                 <div className="card-animated-btn">
-                ₹ 1500.00
+                ₹ {props.price}.00
                 </div>
             </div>
         </div>
-        </Link>
+        
     </>
   )
 }

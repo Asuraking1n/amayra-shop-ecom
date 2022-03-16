@@ -71,7 +71,13 @@
     text-align: center;
 }
 
-
+.outOfStockTextShow{
+    color: #ff4f4f;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: .8rem;
+}
 
 
 
