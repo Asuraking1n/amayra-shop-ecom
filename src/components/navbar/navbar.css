@@ -287,6 +287,8 @@
     height: 40%;
 }
 .search-text{
+    height: 15rem;
+    overflow: auto;
     width: 100%;
     letter-spacing: 2px;
     line-height: 20px;
@@ -351,6 +353,7 @@
     font-style: normal;
     font-size: 1.2rem;
     cursor: pointer;
+    color: #000;
 }
 .nav-route img{
     height: 30%;
@@ -387,6 +390,7 @@ hr{
 }
 .link-class{
     text-decoration: none;
+    color: #000;
 }
 .nav-route-img{
     height: 100%;
@@ -463,6 +467,7 @@ hr{
     }
     .nav-main-route{
         width: 100%;
+        color: #000;
     }
     .nav-routes-sec{
         width: 100%;
