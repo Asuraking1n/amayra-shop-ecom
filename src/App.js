@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import Login from "./components/log-reg/Login";
 import Register from "./components/log-reg/Register";
 import Homepage from "./components/Homepage";
@@ -8,9 +9,9 @@ import SingleProductPage from "./components/singleProductPage/SingleProductPage"
 import ForgetPassword from "./components/log-reg/ForgetPassword";
 import Mockman from "mockman-js";
 import {
-  BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
 import WishList from "./components/wishlist/WishList";
 import Cart from "./components/cart/Cart";
@@ -18,8 +19,13 @@ import Error404 from "./components/404errorpage/Error404";
 import ContactUs from './components/contact/ContactUs'
 
 function App() {
+  let location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [location])
+  
   return (
-    <><Router>
+    <>
       <Navbar />
       <div style={{ height: 'auto', width: 'auto', overflow: 'hidden', position: 'relative' }}>
         <div className="main-cont">
@@ -40,7 +46,7 @@ function App() {
 
         </div>
       </div>
-    </Router>
+    
     </>
   );
 }

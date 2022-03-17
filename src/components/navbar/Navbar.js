@@ -184,11 +184,11 @@ const Navbar = () => {
                   products.filter((filterData) => filterData.title.toLowerCase().includes(searchProduct.toLowerCase()) ? filterData : null)
                     .map((items) => {
                       return (
-                        <SearchCard pID={items._id} imgSrc={items.imgOne} title={items.title} price={items.price} />
+                        <SearchCard product={items} />
                       )
                     })
                 }
-
+                
               </>
             )}
           </div>

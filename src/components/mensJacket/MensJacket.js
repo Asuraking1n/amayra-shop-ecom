@@ -20,7 +20,7 @@ const MensJacket = () => {
             {products.slice(6,9).map((val,index)=>{
                 return(
                     <div key={index}>
-                    <PriceCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price}/>
+                    <PriceCard product={val}/>
                     </div>
                 )
             })}

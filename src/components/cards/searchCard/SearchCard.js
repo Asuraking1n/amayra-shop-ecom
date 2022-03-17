@@ -4,16 +4,16 @@ import {Link} from 'react-router-dom'
 const SearchCard = (props) => {
   return (
     <>
-    <Link to={`/shop/` + props.pID} className='searchLink'>
+    <Link to={`/shop/` + props.product._id} className='searchLink'>
         <div className="search-card-cont">
             <div className="search-card-img-sec">
-                <img src={props.imgSrc} alt="profile" />
+                <img src={props.product.imgOne} alt="profile" />
             </div>
             <div className="search-card-title-sec">
                 <span>
-                {props.title}
+                {props.product.title}
                 </span>
-                ₹ {props.price}
+                ₹ {props.product.price}
             </div>
         </div>
       </Link>

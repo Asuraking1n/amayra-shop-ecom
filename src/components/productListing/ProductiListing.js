@@ -158,14 +158,14 @@ const ProductiListing = () => {
                                     state.filterStore.map((val, index) => {
                                         return (
                                             <div key={index}>
-                                                <RatedCard imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price} />
+                                                <RatedCard product={val} />
                                             </div>
                                         )
                                     }) :
                                     products.map((val, index) => {
                                         return (
                                             <div key={index}>
-                                                <RatedCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price} />
+                                                <RatedCard product={val} />
                                             </div>
                                         )
                                     })
