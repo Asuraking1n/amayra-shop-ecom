@@ -1,32 +1,13 @@
 import axios from "axios";
+import { ProductReducer } from "../reducer/productReducer";
 import { createContext, useReducer, useEffect, useContext } from "react";
 
 const productContext = createContext()
 
 
 
-
-
-
-
-const productReducer = (state, action) => {
-    switch (action.type) {
-        case 'FETCH_DATA':
-            return { ...state, products: action.payload }
-        default:
-            return state
-    }
-}
-
-
-
-
-
-
-
-
 const ProductContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(productReducer, { products: [] })
+    const [state, dispatch] = useReducer(ProductReducer, { products: [] })
     const fetchData = async () => {
         try {
             const response = await axios.get('/api/products')

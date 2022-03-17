@@ -31,7 +31,7 @@ const FilterData = (arr, type) => {
         case 'LOW_TO_HIGH':
             return [...arr].sort((a, b) => a.price - b.price)
         default:
-            return [...arr]
+            return arr
     }
 }
 

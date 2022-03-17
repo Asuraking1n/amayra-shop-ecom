@@ -4,20 +4,13 @@ import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import "./productlisting.css";
 import { useProduct } from "../../context/product-context";
-import { FilterData } from "./FilterData";
+import {FilterReduce} from '../../reducer/FilterReducer'
 
 
 const ProductiListing = () => {
     const [isfilter, setIsfilter] = useState("");
     const { products } = useProduct()
-    const [state, dispatch] = useReducer(function filterReduce(state, action) {
-        switch (action.type) {
-            case 'SORT':
-                return { ...state, filterStore: FilterData([...products], action.payload) }
-            default:
-                return state
-        }
-    }, { filterStore: [] })
+    const [state, dispatch] = useReducer(FilterReduce, { filterStore: [] })
     return (
         <>
 
