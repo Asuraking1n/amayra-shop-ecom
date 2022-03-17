@@ -1,9 +1,10 @@
 import React from "react";
-// import RatedCard from "../cards/ratedCard/RatedCard";
-// import PriceCard from "../cards/priceCard/PriceCard"
-import ColorCard from "../cards/ColorChooseCard/ColorCard"
+import {useProduct} from '../../context/product-context'
+import PriceCard from '../cards/priceCard/PriceCard'
 import "./mensjacket.css"
 const MensJacket = () => {
+    const {products} = useProduct()
+    
     return <>
     <div className="mensjacket-sec">
     <div className="men-sec-img">
@@ -16,11 +17,14 @@ const MensJacket = () => {
             <span>AMAYRA'S SHOP CHOICE</span>
             </div>
             <div className="mens-jacket-cont">
-            <ColorCard />
-            <ColorCard />
-            {/* <RatedCard imgOne="/images/card/shirt-1.jpeg" name={"ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT"}/> */}
-            <ColorCard />
-            {/* <PriceCard imgOne={"/images/card/shirt-2.jpeg"} name={"SELECTED HOME OVERCOAT"}/> */}
+            {products.slice(6,9).map((val,index)=>{
+                return(
+                    <div key={index}>
+                    <PriceCard pID={val._id} imgSrcTwo={val.imgTwo} imgSrcOne={val.imgOne} stock={val.stock} name={val.title} type={val.type} price={val.price}/>
+                    </div>
+                )
+            })}
+            
             </div>
         </div>
     </div>

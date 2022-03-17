@@ -100,6 +100,7 @@ const SingleProductPage = () => {
             <p className="product-des">
               {productData.description}
             </p>
+            {!productData.stock?<span className="outOfStockTextShow">Out of stock</span>:null}
             <div className="product-card-btn-cont">
               <input type="text" placeholder="1" />
               <span>add to cart</span>
