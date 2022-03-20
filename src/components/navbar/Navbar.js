@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchCard from "../cards/searchCard/SearchCard";
 import { useProduct } from '../../context/product-context'
+import { useCart } from "../../context/cart-context";
 import "./navbar.css";
 const Navbar = () => {
   const [changeIcon, setChangeIcon] = useState("/images/hamburger.png");
@@ -9,10 +10,17 @@ const Navbar = () => {
   const [isSideSearch, setIsSideSearch] = useState(false);
   const [searchProduct, setSearchProduct] = useState('')
   const { products } = useProduct()
+  const {cartState} =useCart()
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  const userLogOut = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('cartData')
+    cartState.cart.length=0
+    navigate('/')
+  }
   return (
-
     <>
-
       <div className="navbar">
         {/* side bar */}
         <div className={isSidebar ? "sidebar-active" : "sidebar-section"}>
@@ -24,27 +32,27 @@ const Navbar = () => {
                 onClick={() => setIsSideBar(false)}
               />
             </div>
-            <div className="nav-routes-sec">
-              <div className="nav-route">
-                <Link to='/' className="nav-route">
+            <div className="nav-routes-sec" >
+              <div className="nav-route " onClick={()=>setIsSideBar(false)} >
+                <Link to='/' className="nav-route" >
                   HOME
                   <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
-              <div className="nav-route">
-                <Link to='/shop' className="nav-route">
+              <div className="nav-route" onClick={()=>setIsSideBar(false)}>
+                <Link to='/shop' className="nav-route" >
                   shop
                   <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
               <div className="nav-route">
-                <Link to='/contact-us' className="nav-route">
+                <Link to='/contact-us' className="nav-route" onClick={()=>setIsSideBar(false)}>
                   contact us
                   <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
               </div>
               <div className="nav-route">
-                <Link to='/customer' className="nav-route">
+                <Link to='/customer' className="nav-route" onClick={()=>setIsSideBar(false)}>
                   Customer Help
                   <img src="/images/fill-right-arrow.png" alt="arrow" />
                 </Link>
@@ -52,7 +60,7 @@ const Navbar = () => {
             </div>
             <hr />
             <div className="nav-main-route-sec">
-              <div className="nav-main-route">
+              <div className="nav-main-route" onClick={()=>setIsSideBar(false)}>
                 <Link to='/wishlist' className="nav-main-route">
                   <div className="nav-route-img">
                     <img src="/images/wish-list.png" alt="wishlist" />
@@ -60,14 +68,19 @@ const Navbar = () => {
                   Wishlist
                 </Link>
               </div>
-              <div className="nav-main-route">
+              {!token ? <>
+                <div className="nav-main-route" onClick={() => setIsSideBar(false)}>
 
-                <div className="nav-route-img">
-                  <img src="/images/login.png" alt="wishlist" />
+                  <div className="nav-route-img">
+                    <img src="/images/login.png" alt="wishlist" />
+                  </div>
+                  <Link to='/login' className="link-class">
+                    Login</Link>/<Link to='/register' className="link-class" >register</Link>
                 </div>
-                <Link to='/login' className="link-class">
-                  Login</Link>/<Link to='/register' className="link-class" >register</Link>
-              </div>
+              </> : <>
+                <div className="nav-main-route" onClick={userLogOut}><span onClick={() => setIsSideBar(false)}>Logout</span></div>
+              </>}
+
             </div>
             <hr />
             <div className="nav-social-links">
@@ -176,19 +189,19 @@ const Navbar = () => {
               <img src="/images/search-light.png" alt="search" />
             </div>
           </div>
-          <div className="search-text">
+          <div className="search-text" onClick={()=>setIsSideSearch(false)}>
             {searchProduct.length < 2 ? <span>Find your product with fast search. Enter some keyword such as
               dress, jacket etc.</span> : (
               <>
                 {
                   products.filter((filterData) => filterData.title.toLowerCase().includes(searchProduct.toLowerCase()) ? filterData : null)
-                    .map((items) => {
+                    .map((items,id) => {
                       return (
-                        <SearchCard product={items} />
+                        <SearchCard product={items} key={id} />
                       )
                     })
                 }
-                
+
               </>
             )}
           </div>

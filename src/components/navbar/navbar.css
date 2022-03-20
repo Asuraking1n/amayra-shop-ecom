@@ -211,7 +211,7 @@
 .sideSearch-sec{
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: -120%;
     display: flex;
     opacity: 0;
@@ -224,7 +224,7 @@
 .sideSearch-active{
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     opacity: 1;
     top: 0;
     right: 0;

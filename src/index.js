@@ -8,6 +8,7 @@ import {
 
 } from "react-router-dom";
 import { ProductContextProvider } from './context/product-context'
+import {CartContextProvider} from './context/cart-context'
 
 // Call make Server
 makeServer();
@@ -16,9 +17,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
   <Router>
+  <CartContextProvider>
   <ProductContextProvider>
     <App />
   </ProductContextProvider>
+  </CartContextProvider>
   </Router>
   </React.StrictMode>,
   document.getElementById("root")
