@@ -3,6 +3,7 @@ import "../cart/cart.css";
 import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import CartCard from "../cards/cartCard/CartCard";
+import Filterdata from "../../context/Filterdata";
 const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);
   const [finalAddress, setfinalAddress] = useState("india");
@@ -10,14 +11,7 @@ const Cart = () => {
   const [totalAmount,setTotalAmount] = useState(0)
   
   let cartData = JSON.parse(localStorage.getItem('cartData'))
-  if(cartData){
-    cartData = cartData.filter((value, index) => {
-      const _value = JSON.stringify(value);
-      return index === cartData.findIndex(obj => {
-        return JSON.stringify(obj) === _value;
-      });
-    });
-  }
+  cartData = Filterdata(cartData)
 
 
 
@@ -39,13 +33,13 @@ const Cart = () => {
               ) : (
                 <>
                   {cartData.map((val, id) => {
-                    return (<>
+                    return (
                       <CartCard
                         key={id}
                         itemName={val.title}
                         price={val.price}
                         calAmount={(Amount)=>setTotalAmount(Amount + totalAmount)}
-                      /></>
+                      />
                     );
                   })}
                 </>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchCard from "../cards/searchCard/SearchCard";
 import { useProduct } from '../../context/product-context'
 import { useCart } from "../../context/cart-context";
+import Filterdata from "../../context/Filterdata";
 import "./navbar.css";
 const Navbar = () => {
   const [changeIcon, setChangeIcon] = useState("/images/hamburger.png");
@@ -12,6 +13,8 @@ const Navbar = () => {
   const { products } = useProduct()
   const {cartState} =useCart()
   const navigate = useNavigate()
+  let cartData = JSON.parse(localStorage.getItem('cartData'))
+  let wishlistData = JSON.parse(localStorage.getItem('wishlistData'))
   const token = localStorage.getItem('token')
   const userLogOut = () => {
     localStorage.removeItem('token')
@@ -20,6 +23,9 @@ const Navbar = () => {
     cartState.cart.length=0
     navigate('/')
   }
+  
+  cartData = Filterdata(cartData)
+  wishlistData = Filterdata(wishlistData )
   return (
     <>
       <div className="navbar">
@@ -142,6 +148,15 @@ const Navbar = () => {
                 className="nav-btn-icon"
               />
             </div>
+            <div className="nav-wishlist nav-shop">
+              <Link to='/shop' className="nav-wishlist ">
+                <img
+                  src="/images/shop.png"
+                  alt="shop"
+                  className="nav-btn-icon"
+                />
+              </Link>
+            </div>
             <div className="nav-wishlist ">
               <Link to='wishlist' className="nav-wishlist ">
                 <img
@@ -149,7 +164,8 @@ const Navbar = () => {
                   alt="wishlist"
                   className="nav-btn-icon"
                 />
-                <span>0</span>
+                
+                <span>{wishlistData?wishlistData.length:0}</span>
               </Link>
             </div>
             <div className="nav-cart ">
@@ -164,12 +180,12 @@ const Navbar = () => {
                     alt="cart"
                     className="nav-btn-icon"
                   />
-                  <span>0</span>
+                  <span>{cartData?cartData.length:0}</span>
 
                 </div>
               </Link>
             </div>
-
+            
           </div>
         </div>
       </div>

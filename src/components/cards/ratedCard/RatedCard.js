@@ -32,7 +32,7 @@ const RatedCard = (props) => {
                             <div className="card-content-name">{props.product.title}</div>
                         </Link>
                         <div className="card-like" >
-                            <img src="images/like.png" alt="like" onClick={()=>token ? wishlistDispatch({type:'ADD_TO_WISHLIST',payload:props.product}):alert("PLEASE LOGIN OR REGISTER FIRST") || navigate('/register')}/>
+                            <img src="images/like.png" alt="like" onClick={()=>token ? wishlistDispatch({type:'ADD_TO_WISHLIST',payload:props.product}) || navigate('/shop'):alert("PLEASE LOGIN OR REGISTER FIRST") || navigate('/register')}/>
                         </div>
                     </div>
                     {cartState.cart ? (

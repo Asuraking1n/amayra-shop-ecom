@@ -25,7 +25,7 @@ const WishListCard = (props) => {
         <div className="wishlist-card-price">
           <span>₹ {props.item.price}</span>
           <span>
-            {props.item.stock ? <p>In Stock</p> : <p>Out of Stock</p>}
+            {props.item.stock ? <p style={{color:'green'}}>In Stock</p> : <p style={{color:'red'}}>Out of Stock</p>}
           </span>
           <span
             onClick={() =>
