@@ -1,14 +1,16 @@
 import React from "react";
 import "./ratedcard.css";
 import StarRating from "./StarRate";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart-context";
-
+import { useWishlist } from "../../../context/wishlist-context";
 const RatedCard = (props) => {
+    const { cartState,cartDispatch } = useCart();
+    const {wishlistDispatch} = useWishlist()
+    const navigate = useNavigate()
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
-    const { cartState,cartDispatch } = useCart();
-    // const cartData = JSON.parse(localStorage.getItem("cartData"));
+    
     return (
         <>
             <div className="rated-card-cont">
@@ -29,8 +31,8 @@ const RatedCard = (props) => {
                         >
                             <div className="card-content-name">{props.product.title}</div>
                         </Link>
-                        <div className="card-like">
-                            <img src="images/like.png" alt="like" />
+                        <div className="card-like" >
+                            <img src="images/like.png" alt="like" onClick={()=>token ? wishlistDispatch({type:'ADD_TO_WISHLIST',payload:props.product}):alert("PLEASE LOGIN OR REGISTER FIRST") || navigate('/register')}/>
                         </div>
                     </div>
                     {cartState.cart ? (
@@ -47,7 +49,7 @@ const RatedCard = (props) => {
                                                     type: "ADD_TO_CART",
                                                     payload: props.product,
                                                 })
-                                                : alert("TOKEN UNAVILABLE")
+                                                : alert("PLEASE LOGIN OR REGISTER FIRST") || navigate('/register')
                                         }
                                     >
                                         ₹ {props.product.price}.00

@@ -3,7 +3,18 @@ import './wishlist.css'
 import Insta from '../instagram/Insta'
 import Footer from '../footer/Footer'
 import WishListCard from '../cards/wishlistCard/WishListCard'
+
 const WishList = () => {
+  let wishlistData = JSON.parse(localStorage.getItem('wishlistData'))
+  if(wishlistData){
+    wishlistData = wishlistData.filter((value, index) => {
+      const _value = JSON.stringify(value);
+      return index === wishlistData.findIndex(obj => {
+        return JSON.stringify(obj) === _value;
+      });
+    });
+  }
+
   return (
     <>
         <div className="wishlist-sec-cont">
@@ -18,10 +29,13 @@ const WishList = () => {
                 </div>
             </div>
             <div className="wishcard-cont">
-              <WishListCard itemName="LAVISH ALICE DEEP BANDEAU ASYMMETRIC HEM MIDI DRESS" price='880.00' stock='In Stock'/>
-              <WishListCard itemName="FAME AND PARTNERS TALL VALENCIA MAXI DRESS" price='780.00' stock='Out of Stock'/>
-              <WishListCard itemName="MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP" price='600.00' stock='In Stock'/>
-              
+            {!wishlistData?<h1>WishList is Empty</h1>:
+            wishlistData.map((val,id)=>{
+              return(<>
+                <WishListCard key={id} item={val}/>
+              </>)
+            })
+            }
             </div>
         </div>
         <Insta/>

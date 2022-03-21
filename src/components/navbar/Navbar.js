@@ -16,6 +16,7 @@ const Navbar = () => {
   const userLogOut = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('cartData')
+    localStorage.removeItem('wishlistData')
     cartState.cart.length=0
     navigate('/')
   }

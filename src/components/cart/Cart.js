@@ -7,20 +7,20 @@ const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);
   const [finalAddress, setfinalAddress] = useState("india");
   const [address, setAddress] = useState();
-
-
+  const [totalAmount,setTotalAmount] = useState(0)
+  
   let cartData = JSON.parse(localStorage.getItem('cartData'))
+  if(cartData){
+    cartData = cartData.filter((value, index) => {
+      const _value = JSON.stringify(value);
+      return index === cartData.findIndex(obj => {
+        return JSON.stringify(obj) === _value;
+      });
+    });
+  }
 
 
-cartData = cartData.filter((value, index) => {
-  const _value = JSON.stringify(value);
-  return index === cartData.findIndex(obj => {
-    return JSON.stringify(obj) === _value;
-  });
-});
 
-
-console.log(cartData)
   const changeAddress = (e) => {
     setAddress(e.target.value);
   };
@@ -39,12 +39,13 @@ console.log(cartData)
               ) : (
                 <>
                   {cartData.map((val, id) => {
-                    return (
+                    return (<>
                       <CartCard
                         key={id}
                         itemName={val.title}
                         price={val.price}
-                      />
+                        calAmount={(Amount)=>setTotalAmount(Amount + totalAmount)}
+                      /></>
                     );
                   })}
                 </>
@@ -87,7 +88,7 @@ console.log(cartData)
               </div>
               <div className="cart-total">
                 Total
-                <span>₹800.00</span>
+                <span>₹{totalAmount}.00</span>
               </div>
               <button className="check-btn">proceed to checkout</button>
             </div>

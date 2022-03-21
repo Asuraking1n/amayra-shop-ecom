@@ -12,7 +12,7 @@ const ProductiListing = () => {
     const [isfilter, setIsfilter] = useState("");
     const { products } = useProduct()
     const [state, dispatch] = useReducer(FilterReduce, { filterStore: [] })
-
+    
     return (
         <>
 

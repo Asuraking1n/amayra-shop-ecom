@@ -13,6 +13,9 @@
     padding: 0 1rem;
     
 }
+.negQuantity{
+    color: red;
+}
 .wish-list-img-sec{
     display: flex;
     align-items: center;
