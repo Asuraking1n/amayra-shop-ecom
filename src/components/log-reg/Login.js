@@ -1,9 +1,44 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Footer from '../footer/Footer'
 import Insta from '../instagram/Insta'
 import "./log-reg.css"
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
+import axios from 'axios'
 const Login = () => {
+  const navigate = useNavigate()
+  const [userDetails,setUserDetails] = useState({
+    email:'',
+    password:''
+  })
+  
+  const dummyUser = {
+    email: "nishant88tiwari@gmail.com",
+    password: "Nishant",
+  };
+  const applyDummyData=(e)=>{
+    e.preventDefault();
+    setUserDetails(dummyUser)
+  }
+  const LoginDataHandler=(e)=>{
+    let name = e.target.name
+    let val=e.target.value
+    setUserDetails({...userDetails,[name]:val})
+  }
+
+  const submitData=async(e)=>{
+    e.preventDefault();
+    await axios.post('/api/auth/login',{
+        email:userDetails.email,
+        password:userDetails.password
+      })
+      .then((res)=>{
+        localStorage.setItem('token',res.data.encodedToken)
+        navigate('/')
+      })
+      .catch((e)=>alert("USER NOT FOUND"))
+    
+  }
+  
   return (
     <>
         <div className="log-reg-sec">
@@ -11,9 +46,10 @@ const Login = () => {
                 <div className="form-heading">
                 Login
                 </div>
-                <input type="text" className='form-username' placeholder='username or email address'/>
-                <input type="password" className='form-username' placeholder='password'/>
-                <div className="form-btn"><button>LOG IN</button></div>
+                <input type="email" value={userDetails.email} onChange={LoginDataHandler} name='email' className='form-username' placeholder='username or email address'/>
+                <input type="password" value={userDetails.password} onChange={LoginDataHandler} name='password' className='form-username' placeholder='password'/>
+                <div className="form-btn" onClick={applyDummyData}><button>CLICK TO APPLY DUMMY DATA</button></div>
+                <div className="form-btn" onClick={submitData}><button>LOG IN</button></div>
                 <div className="remember-me-cont">
                 <div className="remember-me">
                     <input type="checkbox"  />
