@@ -4,6 +4,18 @@
     cursor: pointer;
     margin-top: 1rem;
 }
+.addedToCart{
+    background-color: #38ddd2;
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    letter-spacing: 2px;
+    background-color: #f2fffe;
+    color: #000;
+    border: 2px solid #a1f0ea;
+}
 #rated-card-img{
     height: 60%;
     width: 100%;

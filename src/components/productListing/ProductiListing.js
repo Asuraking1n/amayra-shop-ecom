@@ -4,13 +4,15 @@ import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import "./productlisting.css";
 import { useProduct } from "../../context/product-context";
-import {FilterReduce} from '../../reducer/FilterReducer'
+import { FilterReduce } from '../../reducer/FilterReducer'
+
 
 
 const ProductiListing = () => {
     const [isfilter, setIsfilter] = useState("");
     const { products } = useProduct()
     const [state, dispatch] = useReducer(FilterReduce, { filterStore: [] })
+    
     return (
         <>
 
@@ -21,12 +23,10 @@ const ProductiListing = () => {
                         <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'ALL' }) }}>all</div>
                         <span>/</span>
                         <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'SHOES' }) }}>shoes</div>
-
                         <span>/</span>
                         <div className="category-item" onClick={() => { dispatch({ type: 'SORT', payload: 'CLOTHING' }) }}>clothing</div>
                     </div>
                 </div>
-
                 <div className="product-body-sec">
                     <div className={`product-body-filter-sec ${isfilter}`}>
                         <div className="product-cat">
