@@ -1,14 +1,24 @@
 import React from "react";
 import "./pricecard.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useCart } from "../../../context/cart-context";
 import { useWishlist } from "../../../context/wishlist-context";
+import axios from 'axios'
 const RatedCard = (props) => {
-    const { cartState, cartDispatch } = useCart();
-    const { wishlistDispatch } = useWishlist();
-    const navigate = useNavigate();
+    const { cartProduct,setCartProduct } = useCart()
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
+    const {setWishListProduct} = useWishlist()
+    const addToCartHandler = async (product) => {
+        const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
+        setCartProduct(response.data.cart)
+        
+    }
+    const addTowishListHandler = async (product) => {
+        const response =await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
+        setWishListProduct(response.data.wishlist)
+    }
+
     return (
         <>
             <div className="price-card-cont">
@@ -32,35 +42,20 @@ const RatedCard = (props) => {
                                 <img
                                     src="images/like.png"
                                     alt="like"
-                                    onClick={() =>
-                                        token
-                                            ? wishlistDispatch({
-                                                type: "ADD_TO_WISHLIST",
-                                                payload: props.product,
-                                            })
-                                            : alert("PLEASE LOGIN OR REGISTER FIRST") ||
-                                            navigate("/register")
-                                    }
+                                    onClick={() => addTowishListHandler(props.product)}
                                 />
                             </div>
                         
                     </div>
-                    {cartState.cart ? (
+                    {cartProduct ? (
                         <>
-                            {cartState.cart.some((item) => item._id === props.product._id) ? (
+                            {cartProduct.some((item) => item._id === props.product._id) ? (
                                 <div className="addedToCartPrice">Item Added In Cart</div>
                             ) : (
                                 <>
                                     <div
                                         className="card-animated-btn"
-                                        onClick={() =>
-                                            token
-                                                ? cartDispatch({
-                                                    type: "ADD_TO_CART",
-                                                    payload: props.product,
-                                                })
-                                                : alert("PLEASE LOGIN OR REGISTER FIRST") || navigate('/register')
-                                        }
+                                        onClick={() => addToCartHandler(props.product)}
                                     >
                                         ₹ {props.product.price}.00
                                     </div>
@@ -71,14 +66,7 @@ const RatedCard = (props) => {
                         <>
                             <div
                                 className="card-animated-btn"
-                                onClick={() =>
-                                    token
-                                        ? cartDispatch({
-                                            type: "ADD_TO_CART",
-                                            payload: props.product,
-                                        })
-                                        : alert("TOKEN UNAVILABLE")
-                                }
+                                onClick={() => addToCartHandler(props.product)}
                             >
                                 ₹ {props.product.price}.00
                             </div>

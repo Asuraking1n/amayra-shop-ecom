@@ -11,6 +11,8 @@ const RatedCard = (props) => {
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
     const {setWishListProduct} = useWishlist()
+
+    
     const addToCartHandler = async (product) => {
         const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
         setCartProduct(response.data.cart)

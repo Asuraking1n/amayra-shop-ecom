@@ -26,7 +26,7 @@ const Cart = () => {
         <div className="cart-container">
           <div className="cart-item-cont">
             <div className="cart-cards-cont">
-              {!cartProduct ? (
+              {cartProduct.length<1 ? (
                 <div className="empty-cart">
                   <img src="https://pa1.narvii.com/7524/15c809fa552c2a2dadd9a7bbb3bced5b7de5ac3ar1-600-600_hq.gif" alt="bin" />
                 </div>
@@ -38,6 +38,7 @@ const Cart = () => {
                         key={id}
                         itemName={val.title}
                         price={val.price}
+                        id={val._id}
                         calAmount={(Amount)=>setTotalAmount(Amount + totalAmount)}
                       />
                     );
