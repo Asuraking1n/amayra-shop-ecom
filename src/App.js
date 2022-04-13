@@ -8,6 +8,8 @@ import ProductiListing from "./components/productListing/ProductiListing";
 import SingleProductPage from "./components/singleProductPage/SingleProductPage";
 import ForgetPassword from "./components/log-reg/ForgetPassword";
 import Mockman from "mockman-js";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Routes,
   Route,
@@ -16,6 +18,7 @@ import {
 import WishList from "./components/wishlist/WishList";
 import Cart from "./components/cart/Cart";
 import Error404 from "./components/404errorpage/Error404";
+
 import ContactUs from './components/contact/ContactUs'
 
 function App() {
@@ -43,10 +46,18 @@ function App() {
             <Route exact path="/shop/:id" element={<SingleProductPage />} />
             <Route path="*" element={<Error404/>} />
           </Routes>
-
+          
         </div>
       </div>
-    
+      <ToastContainer
+                position="top-right"
+                autoClose={60}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                
+            />
     </>
   );
 }

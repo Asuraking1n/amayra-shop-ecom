@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchCard from "../cards/searchCard/SearchCard";
 import { useProduct } from '../../context/product-context'
 import { useCart } from "../../context/cart-context";
-import Filterdata from "../../context/Filterdata";
+import { useWishlist } from "../../context/wishlist-context";
 import "./navbar.css";
 const Navbar = () => {
   const [changeIcon, setChangeIcon] = useState("/images/hamburger.png");
   const [isSidebar, setIsSideBar] = useState(false);
   const [isSideSearch, setIsSideSearch] = useState(false);
   const [searchProduct, setSearchProduct] = useState('')
+  const [totalAmount,setTotalAmount] = useState(0)
   const { products } = useProduct()
-  const {cartState} =useCart()
+  const { cartProduct,setCartProduct } =useCart()
+  const {wishListProduct,setWishListProduct} = useWishlist()
   const navigate = useNavigate()
-  let cartData = JSON.parse(localStorage.getItem('cartData'))
-  let wishlistData = JSON.parse(localStorage.getItem('wishlistData'))
   const token = localStorage.getItem('token')
+  useEffect(() => {
+    setTotalAmount(cartProduct.reduce((acc,val)=>acc = acc+(val.qty*Number(val.price)),0))
+  }, [cartProduct])
+  
   const userLogOut = () => {
     localStorage.removeItem('token')
-    localStorage.removeItem('cartData')
-    localStorage.removeItem('wishlistData')
-    cartState.cart.length=0
+    setWishListProduct([])
+    setCartProduct([])
     navigate('/')
   }
   
-  cartData = Filterdata(cartData)
-  wishlistData = Filterdata(wishlistData )
+  
   return (
     <>
       <div className="navbar">
@@ -165,13 +167,13 @@ const Navbar = () => {
                   className="nav-btn-icon"
                 />
                 
-                <span>{wishlistData?wishlistData.length:0}</span>
+                <span>{wishListProduct?wishListProduct.length:0}</span>
               </Link>
             </div>
             <div className="nav-cart ">
               <Link to='/cart' className="nav-cart ">
                 <div className="nav-cart-data">
-                  $0.99
+                ₹{totalAmount}
                   <span>CART</span>
                 </div>
                 <div className="nav-cart-icon-sec">
@@ -180,7 +182,7 @@ const Navbar = () => {
                     alt="cart"
                     className="nav-btn-icon"
                   />
-                  <span>{cartData?cartData.length:0}</span>
+                  <span>{ cartProduct? cartProduct.length:0}</span>
 
                 </div>
               </Link>

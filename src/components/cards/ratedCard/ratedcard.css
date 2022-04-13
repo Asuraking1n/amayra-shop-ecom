@@ -47,6 +47,7 @@
     font-weight: 600;
     justify-content: center;
     z-index: 10;
+    color: #000;
     background-color: rgba(255, 255, 255, 0.774);
     letter-spacing: 3px;
     position: absolute;
@@ -62,6 +63,10 @@
 .rated-card-content{
     height: 40%;
     width: 100%;
+    
+}
+#link{
+    text-decoration: none;
 }
 .card-content-type{
     letter-spacing: 2px;
