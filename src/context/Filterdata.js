@@ -1,12 +1,11 @@
 
 const Filterdata = (data) => {
     if(data){
-        data = data.filter((value, index) => {
-          const _value = JSON.stringify(value);
-          return index === data.findIndex(obj => {
-            return JSON.stringify(obj) === _value;
-          });
-        });
+        data = data.filter((value, index, self) =>
+        index === self.findIndex((t) => (
+          t._id === value._id 
+        ))
+      )
       }
       return data
 }

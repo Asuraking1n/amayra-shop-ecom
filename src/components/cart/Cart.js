@@ -3,15 +3,15 @@ import "../cart/cart.css";
 import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import CartCard from "../cards/cartCard/CartCard";
-import Filterdata from "../../context/Filterdata";
+
+import { useCart } from "../../context/cart-context";
 const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);
   const [finalAddress, setfinalAddress] = useState("india");
   const [address, setAddress] = useState();
   const [totalAmount,setTotalAmount] = useState(0)
+  const {cartProduct} = useCart()
   
-  let cartData = JSON.parse(localStorage.getItem('cartData'))
-  cartData = Filterdata(cartData)
 
 
 
@@ -26,13 +26,13 @@ const Cart = () => {
         <div className="cart-container">
           <div className="cart-item-cont">
             <div className="cart-cards-cont">
-              {!cartData ? (
+              {!cartProduct ? (
                 <div className="empty-cart">
                   <img src="https://pa1.narvii.com/7524/15c809fa552c2a2dadd9a7bbb3bced5b7de5ac3ar1-600-600_hq.gif" alt="bin" />
                 </div>
               ) : (
                 <>
-                  {cartData.map((val, id) => {
+                  {cartProduct.map((val, id) => {
                     return (
                       <CartCard
                         key={id}
