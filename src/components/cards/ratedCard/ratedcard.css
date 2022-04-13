@@ -62,6 +62,10 @@
 .rated-card-content{
     height: 40%;
     width: 100%;
+    
+}
+#link{
+    text-decoration: none;
 }
 .card-content-type{
     letter-spacing: 2px;

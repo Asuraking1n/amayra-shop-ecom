@@ -11,13 +11,15 @@ const Navbar = () => {
   const [isSideSearch, setIsSideSearch] = useState(false);
   const [searchProduct, setSearchProduct] = useState('')
   const { products } = useProduct()
-  const { cartProduct} =useCart()
-  const {wishListProduct} = useWishlist()
+  const { cartProduct,setCartProduct } =useCart()
+  const {wishListProduct,setWishListProduct} = useWishlist()
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
 
   const userLogOut = () => {
     localStorage.removeItem('token')
+    setWishListProduct([])
+    setCartProduct([])
     navigate('/')
   }
   

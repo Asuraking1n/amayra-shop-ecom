@@ -1,42 +1,59 @@
 import React from "react";
 import "./ratedcard.css";
 import StarRating from "./StarRate";
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart-context";
 import axios from 'axios'
 import { useWishlist } from "../../../context/wishlist-context";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const RatedCard = (props) => {
-
-    const { cartProduct,setCartProduct } = useCart()
+    const navigate = useNavigate()
+    const { cartProduct, setCartProduct } = useCart()
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
-    const {setWishListProduct} = useWishlist()
+    const { setWishListProduct } = useWishlist()
 
-    
+
     const addToCartHandler = async (product) => {
         const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
         setCartProduct(response.data.cart)
-        
+        itemAddNotification('Item Added to Cart')
+
     }
     const addTowishListHandler = async (product) => {
-        const response =await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
+        const response = await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
         setWishListProduct(response.data.wishlist)
+        itemAddNotification('Item Added to WishList')
     }
 
+    const itemAddNotification = (msg) => toast.success(`🦄 ${msg}`, {
+        position: "top-right",
+        autoClose: 600,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
 
 
 
 
     return (
         <>
+
             <div className="rated-card-cont">
-                <div id="rated-card-img">
-                    <img src={props.product.imgTwo} alt="card" id="cardHoverImg" />
-                    <img src={props.product.imgOne} alt="card" />
-                    {!isoutOfStock ? (
-                        <div className="outOfStockLabel">Out of stock</div>
-                    ) : null}
-                </div>
+                <Link
+                    to={`/shop/` + props.product._id}
+                >
+                    <div id="rated-card-img">
+                        <img src={props.product.imgTwo} alt="card" id="cardHoverImg" />
+                        <img src={props.product.imgOne} alt="card" />
+                        {!isoutOfStock ? (
+                            <div className="outOfStockLabel">Out of stock</div>
+                        ) : null}
+                    </div></Link>
                 <div className="rated-card-content">
                     <StarRating />
                     <div className="card-content-type">{props.product.type}</div>
@@ -51,8 +68,8 @@ const RatedCard = (props) => {
                             <img
                                 src="images/like.png"
                                 alt="like"
-                                onClick={() => addTowishListHandler(props.product)}
-                            
+                                onClick={() => token? addTowishListHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
+
                             />
                         </div>
                     </div>
@@ -64,8 +81,7 @@ const RatedCard = (props) => {
                                 <>
                                     <div
                                         className="card-animated-btn"
-                                        onClick={() => addToCartHandler(props.product)}
-
+                                        onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
                                     >
                                         ₹ {props.product.price}.00
                                     </div>
@@ -76,7 +92,7 @@ const RatedCard = (props) => {
                         <>
                             <div
                                 className="card-animated-btn"
-                                onClick={() => addToCartHandler(props.product)}
+                                onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
                             >
                                 ₹ {props.product.price}.00
                             </div>
@@ -84,7 +100,9 @@ const RatedCard = (props) => {
                     )}
                 </div>
             </div>
+
         </>
+
     );
 };
 

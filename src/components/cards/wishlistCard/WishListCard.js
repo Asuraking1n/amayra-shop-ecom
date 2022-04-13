@@ -3,6 +3,8 @@ import { useCart } from "../../../context/cart-context";
 import axios from "axios";
 import "./wishlistcard.css";
 import { useWishlist } from "../../../context/wishlist-context";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const WishListCard = (props) => {
   const { setCartProduct } = useCart();
   const token = localStorage.getItem("token");
@@ -16,12 +18,34 @@ const WishListCard = (props) => {
 const deleteToWishlist = async (product) => {
   const response = await axios.delete(`/api/user/wishlist/${product._id}`,{ headers: { authorization: token } })
   setWishListProduct(response.data.wishlist)
+  itemDltNotification()
   
 }
+
+const itemDltNotification = () => toast.success('🦄 Item Deleted', {
+  position: "top-right",
+  autoClose: 600,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  });
+
+
 
   return (
     <>
       <div className="wishlist-card-cont">
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+        />
         <div className="wishlist-card-item">
           <div className="wish-list-img-sec">
             <img
