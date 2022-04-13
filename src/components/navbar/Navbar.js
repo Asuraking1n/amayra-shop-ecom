@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchCard from "../cards/searchCard/SearchCard";
 import { useProduct } from '../../context/product-context'
@@ -10,12 +10,16 @@ const Navbar = () => {
   const [isSidebar, setIsSideBar] = useState(false);
   const [isSideSearch, setIsSideSearch] = useState(false);
   const [searchProduct, setSearchProduct] = useState('')
+  const [totalAmount,setTotalAmount] = useState(0)
   const { products } = useProduct()
   const { cartProduct,setCartProduct } =useCart()
   const {wishListProduct,setWishListProduct} = useWishlist()
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
-
+  useEffect(() => {
+    setTotalAmount(cartProduct.reduce((acc,val)=>acc = acc+(val.qty*Number(val.price)),0))
+  }, [cartProduct])
+  
   const userLogOut = () => {
     localStorage.removeItem('token')
     setWishListProduct([])
@@ -23,7 +27,7 @@ const Navbar = () => {
     navigate('/')
   }
   
-
+  
   return (
     <>
       <div className="navbar">
@@ -169,7 +173,7 @@ const Navbar = () => {
             <div className="nav-cart ">
               <Link to='/cart' className="nav-cart ">
                 <div className="nav-cart-data">
-                  $0.99
+                ₹{totalAmount}
                   <span>CART</span>
                 </div>
                 <div className="nav-cart-icon-sec">

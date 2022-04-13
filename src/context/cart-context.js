@@ -6,6 +6,7 @@ const cartContext = createContext()
 
 const CartContextProvider = ({ children }) => {
     const [cartProduct, setCartProduct] = useState([])
+    
     const location = useLocation()
     const token = localStorage.getItem("token");
 

@@ -55,7 +55,7 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
               onClick={()=>deleteToWishlist(props.item)}
             />
             <img
-              src="images/card/women-2.jpeg"
+              src={props.item.imgOne}
               className="wishlist-img"
               alt="item"
             />

@@ -8,7 +8,7 @@ import ProductiListing from "./components/productListing/ProductiListing";
 import SingleProductPage from "./components/singleProductPage/SingleProductPage";
 import ForgetPassword from "./components/log-reg/ForgetPassword";
 import Mockman from "mockman-js";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Routes,
