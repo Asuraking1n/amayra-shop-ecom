@@ -63,7 +63,7 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
           <span>{props.item.title}</span>
         </div>
         <div className="wishlist-card-price">
-          <span>₹ {props.item.price}</span>
+          <span>$ {props.item.price}</span>
           <span>
             {props.item.stock ? <p style={{color:'green'}}>In Stock</p> : <p style={{color:'red'}}>Out of Stock</p>}
           </span>

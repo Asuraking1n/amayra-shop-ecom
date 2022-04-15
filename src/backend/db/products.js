@@ -9,7 +9,7 @@ export const products = [
   {
     _id: 'jrwngwngn-wjrngowrkglwrk-glkg',
     title: "FAME AND PARTNERS TALL VALENCIA MAXI DRESS",
-    price: "4999",
+    price: "99",
     tags:'women',
     size:'L',
     description:'With an eye to the catwalks, Fame and Partners Tall apply their cool and individual style to a collection of hand-curated designs, exclusively for ASOS.',
@@ -25,7 +25,7 @@ export const products = [
   {
     _id: 'gkwrmlg-rwgjnwkjgf-rgwjrg',
     title: "OUT FROM UNDER STARDUST SLIP DRESS",
-    price: "7999",
+    price: "79",
     tags:'women',
     size:'M',
     description:'Sleek and slinky slip dress that will put the stars in your eyes by UO’s own Out From Under. Silky v-neck slip with a relaxed fit and side slit featuring skinny adjustable shoulder straps.',
@@ -41,7 +41,7 @@ export const products = [
   {
     _id: 'lekmfemklg-jwngf-jwek',
     title: "AVIATOR JACKET IN FAUX SUEDE",
-    price: "2999",
+    price: "29",
     tags:'women',
     size:'S',
     description:'Score a wardrobe win no matter the dress code with our Collection own-label collection.',
@@ -57,7 +57,7 @@ export const products = [
   {
     _id: 'kefmklmqlkfm-bfkqkf-ldjk',
     title: "MISSGUIDED RIBBED WRAP FRONT SLEEVELESS CROP TOP",
-    price: "699",
+    price: "69",
     tags:'women',
     size:'US10',
     description:'With an eye on the catwalks and hottest gals around, Missguided’s in-house team design for the dreamers, believers and night lovers.',
@@ -73,7 +73,7 @@ export const products = [
   {
     _id: 'kefmklmqlkfm-kjkwje-jjnjq',
     title: "DEEP ONE SHOULDER MIDI BODYCON DRESS",
-    price: "999",
+    price: "99",
     tags:'women',
     size:'US6',
     description:'Score a wardrobe win no matter the dress code with our ASOS Collection own-label collection.',
@@ -89,7 +89,7 @@ export const products = [
   {
     _id: 'kakjfaklefk-bfkqkf-jjnjq',
     title: "MONKI LONGLINE WOVEN TOP",
-    price: "8888",
+    price: "88",
     tags:'women',
     size:'US7',
     description:'Offering irresistible fashion and fast off the runway styles, New Look joins the ASOS round up of great British high street brands.',
@@ -105,7 +105,7 @@ export const products = [
   {
     _id: 'kefmklmqlkfm-bfkqkf-jjnjq',
     title: "ELEMENT BUFFALO PLAID FLANNEL SHIRT IN REGULAR FIT",
-    price: "2999",
+    price: "29",
     tags:'men',
     size:'US8',
     description:'Skate hard and look good is the motto of skate brand Element. Founded during the early 90s in the surf ‘n’ skate state of California, the label fuses high-quality construction with skate-inspired designs.',
@@ -121,7 +121,7 @@ export const products = [
   {
     _id: 'keflskldm5mds-bfkqkf-jjnjq',
     title: "SKINNY SHIRT IN KHAKI TWILL",
-    price: "2499",
+    price: "24",
     tags:'men',
     size:'US9',
     description:'Designed in-house in our London studio by our dedicated menswear team.',
@@ -137,7 +137,7 @@ export const products = [
   {
     _id: 'kefmklmqlkfm-bfkq-kfwlownjq',
     title: "SKINNY SHIRT IN KHAKI TWILL WITH SHORT SLEEVES",
-    price: "2499",
+    price: "24",
     tags:'men',
     size:'M',
     description:'Designed in-house in our London studio by our dedicated menswear team, ASOS offer a range of men’s clothing designed and created exclusively for ASOS.',
@@ -153,7 +153,7 @@ export const products = [
   {
     _id:' kefmklmql-jdjkqkf-jjnjq',
     title: "UNITED COLORS OF BENETTON  HOODED JACKET",
-    price: "6499",
+    price: "64",
     tags:'men',
     size:'L',
     description:'United Colors of Benetton became infamous in the ’90s for their shock-tactic advertising campaigns and continued drive of creativity and courage with their global outlook and worldwide communication.',
@@ -169,7 +169,7 @@ export const products = [
   {
     _id: 'kefmklakdl-lkfm-bfkqkf-jjnjq',
     title: "RIVER ISLAND SKINNY FIT BLAZER IN LIGHT BLUE",
-    price: "5559",
+    price: "55",
     tags:'men',
     size:'S',
     description:'High street favorites River Island are known for the unique touches they add to their directional pieces of men’s clothing.',
@@ -185,7 +185,7 @@ export const products = [
   {
     _id: 'keffea-vlkfm-bfkqkf-jjnjq',
     title: "SELECTED HOMME OVERCOAT",
-    price: "2555",
+    price: "25",
     tags:'men',
     size:'M',
     description:'Still continuing to stand at the forefront of men’s fashion; Selected Homme specialises in raw and simple designs that are never obviously trend-driven, but always edgy, elegant and masculine with focus on attention to detail.',
@@ -201,7 +201,7 @@ export const products = [
   {
     _id: 'kefmkfd-qlkfm-bfkqkf-jjnjq',
     title: "NEW BALANCE 996 RUNNING TRAINERS",
-    price: "2200",
+    price: "20",
     tags:'men',
     size:'L',
     description:'Superstar trainers by sportswear giant adidas Originals have made themselves unforgettable both on the basketball court and the street since 1970.',
@@ -217,7 +217,7 @@ export const products = [
   {
     _id: 'ejrhfhw-klmqlkfm-bfkqkf-jjnjq',
     title: "NEW BALANCE 996 RUNNING TRAINERS",
-    price: "1999",
+    price: "19",
     tags:'men',
     size:'S',
     description:'Classic 996 running shoe is brought to you by pioneering athletics label, New Balance. Built from supple suede and mesh upper, they feature a C-CAP(r) midsole and ENCAP(r) wedge technology.',
@@ -233,7 +233,7 @@ export const products = [
   {
     _id: 'kkmwe-lmqlkfm-bfkqkf-jjnjq',
     title: "VANS OLD SKOOL ULTRAMARINE",
-    price: "599",
+    price: "59",
     tags:'men',
     size:'L',
     description:'Vans updates their classic Old Skool silhouette in a fresh colourway for a modern twist. Durable cotton canvas upper offers a lace front closure and a padded ankle collar and lining for comfortable support.',

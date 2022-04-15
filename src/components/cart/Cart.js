@@ -5,10 +5,12 @@ import Footer from "../footer/Footer";
 import CartCard from "../cards/cartCard/CartCard";
 
 import { useCart } from "../../context/cart-context";
+import PayPal from "../payment/PayPal";
 
 const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);
   const [finalAddress, setfinalAddress] = useState("india");
+  const [checkout,setCheckout] = useState(false)
   const [address, setAddress] = useState();
   const [totalAmount,setTotalAmount] = useState(0)
   const {cartProduct} = useCart()
@@ -53,7 +55,7 @@ useEffect(() => {
             <div className="cart-box-sec">
               <div className="cart-subtotal">
                 subtotal
-                <span>₹{totalAmount}.00</span>
+                <span>${totalAmount}.00</span>
               </div>
               <div className="cart-subtotal cart-add">
                 shipping
@@ -65,7 +67,7 @@ useEffect(() => {
                         type="text"
                         placeholder="Enter Address"
                         onChange={changeAddress}
-                      />{" "}
+                      />
                       <button
                         onClick={() =>
                           setIsaddress(false) || address.length < 1
@@ -85,10 +87,10 @@ useEffect(() => {
               </div>
               <div className="cart-total">
                 Total
-                <span>₹ 
+                <span>$ 
                 {totalAmount}.00</span>
               </div>
-              <button className="check-btn">proceed to checkout</button>
+              {checkout?<PayPal payingAmount={totalAmount} /> :<button className="check-btn" onClick={()=>setCheckout(true)}>proceed to checkout</button>}
             </div>
           </div>
         </div>

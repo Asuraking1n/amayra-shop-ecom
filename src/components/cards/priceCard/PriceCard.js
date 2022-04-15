@@ -60,7 +60,7 @@ const RatedCard = (props) => {
                                         className="card-animated-btn"
                                         onClick={() => addToCartHandler(props.product)}
                                     >
-                                        ₹ {props.product.price}.00
+                                        $ {props.product.price}.00
                                     </div>
                                 </>
                             )}
@@ -71,7 +71,7 @@ const RatedCard = (props) => {
                                 className="card-animated-btn"
                                 onClick={() => addToCartHandler(props.product)}
                             >
-                                ₹ {props.product.price}.00
+                                $ {props.product.price}.00
                             </div>
                         </>
                     )}

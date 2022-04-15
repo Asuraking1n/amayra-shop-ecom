@@ -41,9 +41,7 @@
   border-radius: 5px;
   border: 3px solid #ffffff;
 }
-iframe{
-  pointer-events: none;
-}
+
 
 @keyframes colors {
   0% {

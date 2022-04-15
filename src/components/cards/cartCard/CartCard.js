@@ -60,7 +60,7 @@ const CartCard = (props) => {
           <span>{props.item.title}</span>
         </div>
         <div className="Cart-card-price">
-          <span>₹ {props.item.price}</span>
+          <span>$ {props.item.price}</span>
           <div className="item-quantity">
             <span onClick={() => incItem(props.item) }>+</span>
             {quantity}
