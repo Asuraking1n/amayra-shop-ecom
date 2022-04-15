@@ -90,7 +90,7 @@ useEffect(() => {
                 <span>$ 
                 {totalAmount}.00</span>
               </div>
-              {checkout?<PayPal payingAmount={totalAmount} /> :<button className="check-btn" onClick={()=>setCheckout(true)}>proceed to checkout</button>}
+              <div className="paybtn">{checkout?<PayPal payingAmount={totalAmount} /> :<button className="check-btn" onClick={()=>setCheckout(true)}>proceed to checkout</button>}</div>
             </div>
           </div>
         </div>

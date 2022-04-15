@@ -66,7 +66,7 @@ const CartCard = (props) => {
             {quantity}
             <span onClick={() => decItem(props.item) }>-</span>
           </div>
-          {quantity > -1 ? <span>₹{props.item.price * quantity}.00</span> : <div className="negQuantity">Quantity Can't be less than 0</div>}
+          {quantity > -1 ? <span>$ {props.item.price * quantity}.00</span> : <div className="negQuantity">Quantity Can't be less than 0</div>}
         </div>
       </div>
     </>
