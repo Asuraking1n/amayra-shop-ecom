@@ -47,6 +47,7 @@
     <li>HomePage</li>
     <li>Login/Logout</li>
     <li>Sign Up</li>
+    <li>Payment (paypal)</li>
     <li>Search Products</li>
     <li>View Products</li>
     <li>Add to wishlist</li>
@@ -94,6 +95,15 @@ Of course, no shop will serve all products since your needs may be different. So
 ### Prerequisites
 
 You don't need anything special, just open the link and view videos.
+
+PAYMENT DUMMY ACCOUNT FOR REVIEW
+
+
+ ID: sb-lfuwq15229978@personal.example.com
+
+ PASSWORD: 48lnxx$Z
+
+Use This ID, Password for Payment by PayPal
 
 
 
