@@ -83,7 +83,7 @@ const RatedCard = (props) => {
                                         className="card-animated-btn"
                                         onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
                                     >
-                                        ₹ {props.product.price}.00
+                                        $ {props.product.price}.00
                                     </div>
                                 </>
                             )}
@@ -94,7 +94,7 @@ const RatedCard = (props) => {
                                 className="card-animated-btn"
                                 onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
                             >
-                                ₹ {props.product.price}.00
+                                $ {props.product.price}.00
                             </div>
                         </>
                     )}

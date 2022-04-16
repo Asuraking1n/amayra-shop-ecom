@@ -20,6 +20,7 @@ import Cart from "./components/cart/Cart";
 import Error404 from "./components/404errorpage/Error404";
 
 import ContactUs from './components/contact/ContactUs'
+import SucessPayment from "./components/payment/SucessPayment";
 
 function App() {
   let location = useLocation()
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/contact-us" element={<ContactUs/>} />
             <Route exact path="/forget-password" element={<ForgetPassword />} />
             <Route exact path="/shop/:id" element={<SingleProductPage />} />
+            <Route path="/success" element={<SucessPayment/>} />
             <Route path="*" element={<Error404/>} />
           </Routes>
           

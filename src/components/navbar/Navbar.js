@@ -173,7 +173,7 @@ const Navbar = () => {
             <div className="nav-cart ">
               <Link to='/cart' className="nav-cart ">
                 <div className="nav-cart-data">
-                ₹{totalAmount}
+                ${totalAmount}
                   <span>CART</span>
                 </div>
                 <div className="nav-cart-icon-sec">

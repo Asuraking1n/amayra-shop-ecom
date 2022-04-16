@@ -38,6 +38,12 @@
     height: 100%;
     width: 35%;
     }
+
+.paybtn{
+    width: 100%;
+    height: 10rem;
+    overflow: auto;
+}
 .cart-box-sec{
     height: 30rem;
     width: 80%;

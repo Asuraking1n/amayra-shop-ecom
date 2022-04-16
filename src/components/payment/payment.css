@@ -1,0 +1,38 @@
+.succes-cont{
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 4rem;
+    font-weight: 1000;
+    color: #0a998b;
+}
+
+.succes-cont img{
+    width: 15rem;
+    height: 10rem;
+}
+
+.succes-cont span{
+    font-size: 1rem;
+    color: #690606;
+    line-height: 30px;
+}
+#quote{
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #77B149;
+}
+
+@media (max-width: 480px)  {
+
+    .succes-cont{
+        font-size: 2rem;
+    }
+    .succes-cont img{
+        width: 10rem;
+        height: 7rem;
+    }
+}
