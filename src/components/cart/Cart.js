@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import "../cart/cart.css";
 import Insta from "../instagram/Insta";
 import Footer from "../footer/Footer";
 import CartCard from "../cards/cartCard/CartCard";
-import Filterdata from "../../context/Filterdata";
+
+import { useCart } from "../../context/cart-context";
+import PayPal from "../payment/PayPal";
+
 const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);
   const [finalAddress, setfinalAddress] = useState("india");
+  const [checkout,setCheckout] = useState(false)
   const [address, setAddress] = useState();
   const [totalAmount,setTotalAmount] = useState(0)
+  const {cartProduct} = useCart()
   
-  let cartData = JSON.parse(localStorage.getItem('cartData'))
-  cartData = Filterdata(cartData)
+  
+useEffect(() => {
+  setTotalAmount(cartProduct.reduce((acc,val)=>acc = acc+(val.qty*Number(val.price)),0))
+}, [cartProduct])
 
-
-
+ 
   const changeAddress = (e) => {
     setAddress(e.target.value);
   };
@@ -26,19 +32,18 @@ const Cart = () => {
         <div className="cart-container">
           <div className="cart-item-cont">
             <div className="cart-cards-cont">
-              {!cartData ? (
+              {cartProduct.length<1 ? (
                 <div className="empty-cart">
                   <img src="https://pa1.narvii.com/7524/15c809fa552c2a2dadd9a7bbb3bced5b7de5ac3ar1-600-600_hq.gif" alt="bin" />
                 </div>
               ) : (
                 <>
-                  {cartData.map((val, id) => {
+                  {cartProduct.map((val, id) => {
                     return (
                       <CartCard
                         key={id}
-                        itemName={val.title}
-                        price={val.price}
-                        calAmount={(Amount)=>setTotalAmount(Amount + totalAmount)}
+                        item={val}
+                        
                       />
                     );
                   })}
@@ -50,7 +55,7 @@ const Cart = () => {
             <div className="cart-box-sec">
               <div className="cart-subtotal">
                 subtotal
-                <span>₹800.00</span>
+                <span>${totalAmount}.00</span>
               </div>
               <div className="cart-subtotal cart-add">
                 shipping
@@ -62,7 +67,7 @@ const Cart = () => {
                         type="text"
                         placeholder="Enter Address"
                         onChange={changeAddress}
-                      />{" "}
+                      />
                       <button
                         onClick={() =>
                           setIsaddress(false) || address.length < 1
@@ -82,9 +87,10 @@ const Cart = () => {
               </div>
               <div className="cart-total">
                 Total
-                <span>₹{totalAmount}.00</span>
+                <span>$ 
+                {totalAmount}.00</span>
               </div>
-              <button className="check-btn">proceed to checkout</button>
+              <div className="paybtn">{checkout?<PayPal payingAmount={totalAmount} /> :<button className="check-btn" onClick={()=>setCheckout(true)}>proceed to checkout</button>}</div>
             </div>
           </div>
         </div>

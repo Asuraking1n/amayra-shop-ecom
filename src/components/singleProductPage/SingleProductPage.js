@@ -5,6 +5,8 @@ import Footer from "../footer/Footer";
 import AdditionalInfo from "./AdditionalInfo";
 import Review from "./Review";
 import {useParams,Link} from 'react-router-dom'
+import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 import "./singlepage.css";
 import axios from "axios";
 
@@ -17,8 +19,19 @@ const SingleProductPage = () => {
     email:'',
     review:''
   })
+  const {setCartProduct} = useCart()
+  const {setWishListProduct} = useWishlist()
   const [imgShow, setImgShow] = useState('');
-
+  const token = localStorage.getItem("token");
+  const addToCartHandler = async (product) => {
+    const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
+    setCartProduct(response.data.cart)
+    
+}
+const addTowishListHandler = async (product) => {
+  const response =await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
+  setWishListProduct(response.data.wishlist)
+}
 
   useEffect(()=>{
     axios.get(`/api/products/${id}`)
@@ -103,9 +116,9 @@ const SingleProductPage = () => {
             {!productData.stock?<span className="outOfStockTextShow">Out of stock</span>:null}
             <div className="product-card-btn-cont">
               <input type="text" placeholder="1" />
-              <span>add to cart</span>
+              <span onClick={()=>addToCartHandler(productData)}>add to cart</span>
             </div>
-            <div className="add-to-wishlist">
+            <div className="add-to-wishlist" onClick={()=>addTowishListHandler(productData)}>
               <img src="/images/like.png" alt="heart" />
               add to wishlist
             </div>
