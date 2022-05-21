@@ -1,11 +1,11 @@
 import React, { useState,useEffect} from "react";
 import "../cart/cart.css";
-import Insta from "../instagram/Insta";
-import Footer from "../footer/Footer";
-import CartCard from "../cards/cartCard/CartCard";
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
+import CartCard from "../../components/cards/cartCard/CartCard";
 
 import { useCart } from "../../context/cart-context";
-import PayPal from "../payment/PayPal";
+import PayPal from "../../components/payment/PayPal";
 
 const Cart = () => {
   const [isAddress, setIsaddress] = useState(false);

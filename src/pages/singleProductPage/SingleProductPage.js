@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
-import StarRate from "../cards/ratedCard/StarRate";
-import Insta from "../instagram/Insta";
-import Footer from "../footer/Footer";
+import StarRate from "../../components/cards/ratedCard/StarRate";
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import AdditionalInfo from "./AdditionalInfo";
 import Review from "./Review";
 import {useParams,Link} from 'react-router-dom'

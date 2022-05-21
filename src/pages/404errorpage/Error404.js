@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../footer/Footer'
-import Insta from '../instagram/Insta'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import './error.css'
 const Error404 = () => {
     return (

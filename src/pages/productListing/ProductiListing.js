@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from "react";
-import RatedCard from "../cards/ratedCard/RatedCard";
-import Insta from "../instagram/Insta";
-import Footer from "../footer/Footer";
+import RatedCard from "../../components/cards/ratedCard/RatedCard";
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import "./productlisting.css";
 import { useProduct } from "../../context/product-context";
 import { FilterReduce } from '../../reducer/FilterReducer'
