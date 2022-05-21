@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useCart } from "../../../context/cart-context";
-import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./cartcard.css";
+import { DeleteListService } from "../../../services/DeleteListService";
+import IncDecService from "../../../services/IncDecService";
 const CartCard = (props) => {
   const [quantity, setQunatity] = useState(1);
   const { setCartProduct} = useCart()
@@ -18,21 +19,20 @@ const CartCard = (props) => {
     progress: undefined,
   });
 
-  const deleteToWishlist = async (product) => {
-    const response = await axios.delete(`/api/user/cart/${product._id}`, { headers: { authorization: token } })
+  const deleteToCart = async (product) => {
+    const response = await DeleteListService('cart',product._id,token)
     setCartProduct(response.data.cart)
     itemDltNotification()
   }
 
-  const incItem = async (product) => {
-    const response = await axios.post(`/api/user/cart/${product._id}`, { action: { type: 'increment' } }, { headers: { authorization: token } })
+  const incItem = async(product) => {
+    const response = await IncDecService('increment',product._id,token)
     setQunatity(response.data.cart.find((val) => val._id === product._id).qty);
     setCartProduct(response.data.cart)
-
   }
 
-  const decItem = async (product) => {
-    const response = await axios.post(`/api/user/cart/${product._id}`, { action: { type: 'decrement' } }, { headers: { authorization: token } })
+  const decItem = async(product) => {
+    const response = await IncDecService('decrement',product._id,token)
     setQunatity(response.data.cart.find((val) => val._id === product._id).qty);
     setCartProduct(response.data.cart)
   }
@@ -50,7 +50,7 @@ const CartCard = (props) => {
         />
         <div className="Cart-card-item">
           <div className="wish-list-img-sec">
-            <img src="images/cross.png" className="Cart-cancel" alt="close" onClick={() => deleteToWishlist(props.item)} />
+            <img src="images/cross.png" className="Cart-cancel" alt="close" onClick={() => deleteToCart(props.item)} />
             <img
               src={props.item.imgOne}
               className="Cart-img"

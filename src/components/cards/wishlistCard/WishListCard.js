@@ -1,22 +1,22 @@
 import React from "react";
 import { useCart } from "../../../context/cart-context";
-import axios from "axios";
 import "./wishlistcard.css";
 import { useWishlist } from "../../../context/wishlist-context";
 import { ToastContainer, toast } from 'react-toastify';
+import addToListService from "../../../services/addToListService";
 import 'react-toastify/dist/ReactToastify.css';
+import { DeleteListService } from "../../../services/DeleteListService";
 const WishListCard = (props) => {
   const { setCartProduct } = useCart();
   const token = localStorage.getItem("token");
   const {setWishListProduct} = useWishlist()
-  const addToCartHandler = async (product) => {
-    const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
-    setCartProduct(response.data.cart)
-    
-}
 
+const addToCartHandler = async (product) => {
+  const response = await addToListService('cart',product,token)
+  setCartProduct(response.data.cart)
+}
 const deleteToWishlist = async (product) => {
-  const response = await axios.delete(`/api/user/wishlist/${product._id}`,{ headers: { authorization: token } })
+  const response = await await DeleteListService('wishlist',product._id,token)
   setWishListProduct(response.data.wishlist)
   itemDltNotification()
   

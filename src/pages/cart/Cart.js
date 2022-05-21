@@ -17,7 +17,7 @@ const Cart = () => {
   
   
 useEffect(() => {
-  setTotalAmount(cartProduct.reduce((acc,val)=>acc = acc+(val.qty*Number(val.price)),0))
+  return setTotalAmount(cartProduct.reduce((acc,val)=>acc = acc+(val.qty*Number(val.price)),0))
 }, [cartProduct])
 
  

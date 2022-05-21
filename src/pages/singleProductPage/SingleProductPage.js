@@ -9,6 +9,7 @@ import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
 import "./singlepage.css";
 import axios from "axios";
+import addToListService from "../../services/addToListService";
 
 const SingleProductPage = () => {
   const {id} = useParams();
@@ -24,12 +25,12 @@ const SingleProductPage = () => {
   const [imgShow, setImgShow] = useState('');
   const token = localStorage.getItem("token");
   const addToCartHandler = async (product) => {
-    const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
+    const response = await addToListService('cart',product,token)
     setCartProduct(response.data.cart)
     
 }
 const addTowishListHandler = async (product) => {
-  const response =await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
+  const response =await addToListService('wishlist',product,token)
   setWishListProduct(response.data.wishlist)
 }
 
