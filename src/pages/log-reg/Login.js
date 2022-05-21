@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import Footer from '../footer/Footer'
-import Insta from '../instagram/Insta'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import "./log-reg.css"
 import {Link,useNavigate} from 'react-router-dom'
-import axios from 'axios'
+import { LoginAPIservice } from '../../services/LoginAPIservice'
 const Login = () => {
   const navigate = useNavigate()
   const [userDetails,setUserDetails] = useState({
@@ -27,15 +27,13 @@ const Login = () => {
 
   const submitData=async(e)=>{
     e.preventDefault();
-    await axios.post('/api/auth/login',{
-        email:userDetails.email,
-        password:userDetails.password
-      })
-      .then((res)=>{
-        localStorage.setItem('token',res.data.encodedToken)
-        navigate('/')
-      })
-      .catch((e)=>alert("USER NOT FOUND"))
+    try {
+      const res = await LoginAPIservice(userDetails)
+      localStorage.setItem('token',res.data.encodedToken)
+      navigate('/')
+    } catch (error) {
+      alert("USER NOT FOUND")
+    }
     
   }
   

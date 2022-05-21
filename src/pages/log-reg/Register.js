@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
-import Footer from '../footer/Footer'
-import Insta from '../instagram/Insta'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import "./log-reg.css"
 import {Link} from 'react-router-dom'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import SignupAPIservice from '../../services/SignupAPIservice'
 const Register = () => {
   const navigate = useNavigate()
   const [userData,setUserData] = useState({
@@ -23,15 +23,7 @@ const Register = () => {
     e.preventDefault();
     if(userData.password === userData.confirmPassword){
       try{
-        const response = await axios.post(
-          `/api/auth/signup`,
-          JSON.stringify({
-            firstName:userData.name,
-            lastName:userData.name,
-            email:userData.email,
-            password: userData.password
-          })
-        );
+        const response = await SignupAPIservice(userData)
         localStorage.setItem('token',response.data.encodedToken)
         navigate('/')
       }catch (error){

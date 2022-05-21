@@ -14,7 +14,7 @@ const ProductContextProvider = ({ children }) => {
             dispatch({ type: 'FETCH_DATA', payload: response.data.products })
 
         } catch (e) {
-            console.log(e)
+            alert(e)
         }
     }
     useEffect(() => {

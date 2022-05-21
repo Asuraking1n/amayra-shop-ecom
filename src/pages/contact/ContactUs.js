@@ -1,7 +1,7 @@
 import React from 'react'
 import './contact.css'
-import Insta from '../instagram/Insta'
-import Footer from '../footer/Footer'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 const ContactUs = () => {
     return (
         <>

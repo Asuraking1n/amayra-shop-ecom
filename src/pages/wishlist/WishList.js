@@ -1,10 +1,10 @@
 import React from 'react'
 import './wishlist.css'
-import Insta from '../instagram/Insta'
-import Footer from '../footer/Footer'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 import Filterdata from '../../context/Filterdata'
 import { useWishlist } from '../../context/wishlist-context'
-import WishListCard from '../cards/wishlistCard/WishListCard'
+import WishListCard from '../../components/cards/wishlistCard/WishListCard'
 const WishList = () => {
 
   let {wishListProduct} = useWishlist()

@@ -3,7 +3,7 @@ import "./ratedcard.css";
 import StarRating from "./StarRate";
 import { Link,  useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart-context";
-import axios from 'axios'
+import addToListService from "../../../services/addToListService";
 import { useWishlist } from "../../../context/wishlist-context";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,15 +14,13 @@ const RatedCard = (props) => {
     const isoutOfStock = props.product.stock;
     const { setWishListProduct } = useWishlist()
 
-
     const addToCartHandler = async (product) => {
-        const response = await axios.post('/api/user/cart', { product }, { headers: { authorization: token } })
+        const response = await addToListService('cart',product,token)
         setCartProduct(response.data.cart)
         itemAddNotification('Item Added to Cart')
-
     }
     const addTowishListHandler = async (product) => {
-        const response = await axios.post('/api/user/wishlist', { product }, { headers: { authorization: token } })
+        const response = await addToListService('wishlist',product,token)
         setWishListProduct(response.data.wishlist)
         itemAddNotification('Item Added to WishList')
     }

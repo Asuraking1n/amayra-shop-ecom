@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 import "./homepage.css"
-import BodySection from "./bodySection/BodySection"
-import TiltCard from './cards/tiltCard/TiltCard'
-import MensJacket from './mensJacket/MensJacket'
-import ShoesSection from './shoesSection/ShoesSection'
-import WomenSection from './woMenSection/WomenSection'
-import BestSelling from './bestSelling/BestSelling'
-import Insta from './instagram/Insta'
-import Footer from './footer/Footer'
+import BodySection from "../../components/bodySection/BodySection"
+import TiltCard from '../../components/cards/tiltCard/TiltCard'
+import MensJacket from '../../components/mensJacket/MensJacket'
+import ShoesSection from '../../components/shoesSection/ShoesSection'
+import WomenSection from '../../components/woMenSection/WomenSection'
+import BestSelling from '../../components/bestSelling/BestSelling'
+import Footer from '../../components/footer/Footer'
+import Insta from '../../components/instagram/Insta'
 const Homepage = () => {
   const [cursorX,setCursorX]=useState()
   const [cursorY,setCursorY]=useState()
