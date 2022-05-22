@@ -7,7 +7,7 @@ import addToListService from "../../../services/addToListService";
 import 'react-toastify/dist/ReactToastify.css';
 import { DeleteListService } from "../../../services/DeleteListService";
 const WishListCard = (props) => {
-  const { setCartProduct } = useCart();
+  const {cartProduct, setCartProduct } = useCart();
   const token = localStorage.getItem("token");
   const {setWishListProduct} = useWishlist()
 
@@ -67,11 +67,15 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
           <span>
             {props.item.stock ? <p style={{color:'green'}}>In Stock</p> : <p style={{color:'red'}}>Out of Stock</p>}
           </span>
-          <span
+          {!cartProduct.some((data) => data._id === props.item._id)?
+            <span
             onClick={() => addToCartHandler(props.item)}
           >
             Add to cart
-          </span>
+          </span>:
+          <span>Added in Cart</span>
+          }
+          
         </div>
       </div>
     </>

@@ -71,7 +71,9 @@ const RatedCard = (props) => {
                             />
                         </div>
                     </div>
-                    {cartProduct ? (
+                    {
+                        props.product.stock?
+                        cartProduct ? (
                         <>
                             {cartProduct.some((item) => item._id === props.product._id) ? (
                                 <div className="addedToCart">Item Added In Cart</div>
@@ -95,7 +97,9 @@ const RatedCard = (props) => {
                                 $ {props.product.price}.00
                             </div>
                         </>
-                    )}
+                    ):
+                    <div className="card-animated-btn"> Out of Stock</div>
+                    }
                 </div>
             </div>
 

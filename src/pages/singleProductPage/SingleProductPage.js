@@ -4,14 +4,14 @@ import Footer from '../../components/footer/Footer'
 import Insta from '../../components/instagram/Insta'
 import AdditionalInfo from "./AdditionalInfo";
 import Review from "./Review";
-import {useParams,Link} from 'react-router-dom'
-import { useCart } from "../../context/cart-context";
+import {useParams,Link,useNavigate} from 'react-router-dom'
 import { useWishlist } from "../../context/wishlist-context";
 import "./singlepage.css";
 import axios from "axios";
 import addToListService from "../../services/addToListService";
-
+import { useCart } from "../../context/cart-context";
 const SingleProductPage = () => {
+  const navigate = useNavigate()
   const {id} = useParams();
   const [isReview, setIsReview] = useState(false);
   const [productData,setProductData] = useState([]);
@@ -20,7 +20,7 @@ const SingleProductPage = () => {
     email:'',
     review:''
   })
-  const {setCartProduct} = useCart()
+  const {cartProduct,setCartProduct} = useCart()
   const {setWishListProduct} = useWishlist()
   const [imgShow, setImgShow] = useState('');
   const token = localStorage.getItem("token");
@@ -117,7 +117,15 @@ const addTowishListHandler = async (product) => {
             {!productData.stock?<span className="outOfStockTextShow">Out of stock</span>:null}
             <div className="product-card-btn-cont">
               <input type="text" placeholder="1" />
-              <span onClick={()=>addToCartHandler(productData)}>add to cart</span>
+              {productData.stock?
+                !cartProduct.some((data) => data._id === productData._id)?
+                <span 
+                onClick={() => token? addToCartHandler(productData): navigate('/login')}
+              >add to cart</span>:
+              <span>Item added in cart</span>
+              :
+              <span>Out Of Stock</span>
+              }
             </div>
             <div className="add-to-wishlist" onClick={()=>addTowishListHandler(productData)}>
               <img src="/images/like.png" alt="heart" />

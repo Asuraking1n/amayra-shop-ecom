@@ -1,6 +1,6 @@
 import React from "react";
 import "./pricecard.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart-context";
 import { useWishlist } from "../../../context/wishlist-context";
 import addToListService from "../../../services/addToListService";
@@ -9,6 +9,7 @@ const RatedCard = (props) => {
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
     const { setWishListProduct } = useWishlist()
+    const navigate = useNavigate()
     const addToCartHandler = async (product) => {
         const response = await addToListService('cart',product,token)
         setCartProduct(response.data.cart)
@@ -50,7 +51,8 @@ const RatedCard = (props) => {
                         </div>
 
                     </div>
-                    {cartProduct ? (
+                    {props.product.stock?
+                        cartProduct ? (
                         <>
                             {cartProduct.some((item) => item._id === props.product._id) ? (
                                 <div className="addedToCartPrice">Item Added In Cart</div>
@@ -58,7 +60,7 @@ const RatedCard = (props) => {
                                 <>
                                     <div
                                         className="card-animated-btn"
-                                        onClick={() => addToCartHandler(props.product)}
+                                        onClick={() => token? addToCartHandler(props.product): navigate('/login')}
                                     >
                                         $ {props.product.price}.00
                                     </div>
@@ -69,12 +71,14 @@ const RatedCard = (props) => {
                         <>
                             <div
                                 className="card-animated-btn"
-                                onClick={() => addToCartHandler(props.product)}
+                                onClick={() => token? addToCartHandler(props.product): navigate('/login')}
                             >
                                 $ {props.product.price}.00
                             </div>
                         </>
-                    )}
+                    ):
+                    <div className="card-animated-btn"> Out of Stock</div>
+                    }
                 </div>
             </div>
         </>
