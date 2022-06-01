@@ -3,15 +3,17 @@ import StarRate from "../../components/cards/ratedCard/StarRate";
 import Footer from '../../components/footer/Footer'
 import Insta from '../../components/instagram/Insta'
 import AdditionalInfo from "./AdditionalInfo";
+import { toast } from "react-toastify";
 import Review from "./Review";
-import {useParams,Link} from 'react-router-dom'
-import { useCart } from "../../context/cart-context";
+import {useParams,Link,useNavigate} from 'react-router-dom'
 import { useWishlist } from "../../context/wishlist-context";
 import "./singlepage.css";
 import axios from "axios";
+import { debounce } from "lodash";
 import addToListService from "../../services/addToListService";
-
+import { useCart } from "../../context/cart-context";
 const SingleProductPage = () => {
+  const navigate = useNavigate()
   const {id} = useParams();
   const [isReview, setIsReview] = useState(false);
   const [productData,setProductData] = useState([]);
@@ -20,10 +22,11 @@ const SingleProductPage = () => {
     email:'',
     review:''
   })
-  const {setCartProduct} = useCart()
-  const {setWishListProduct} = useWishlist()
+  const {cartProduct,setCartProduct} = useCart()
+  const {wishListProduct,setWishListProduct} = useWishlist()
   const [imgShow, setImgShow] = useState('');
   const token = localStorage.getItem("token");
+  const notify= (msg)=>toast.success(msg)
   const addToCartHandler = async (product) => {
     const response = await addToListService('cart',product,token)
     setCartProduct(response.data.cart)
@@ -37,7 +40,7 @@ const addTowishListHandler = async (product) => {
   useEffect(()=>{
     axios.get(`/api/products/${id}`)
     .then(response=>setProductData(response.data.product) )
-    .catch((e)=>console.log(e))
+    .catch((e)=>notify('Error Occured Retry'))
   },[id])
 
   let name,val
@@ -46,7 +49,13 @@ const addTowishListHandler = async (product) => {
     val = e.target.value
     setReviewData({...reviewData,[name]:val})
   }
-  
+  const debounceCartData = debounce(()=>{
+    token? addToCartHandler(productData) && notify('Item added to cart'): navigate('/login')
+},250)
+
+const debounceWishListData = debounce(()=>{
+  token ? addTowishListHandler(productData) && notify('item added to Wishlist'):navigate('/login')
+},250) 
 
   return (
     <>{!productData?
@@ -103,13 +112,13 @@ const addTowishListHandler = async (product) => {
               BACK
             </Link>
             </div>
-            <StarRate />
+            <StarRate rateCount={productData.rating}/>
             <div className="product-name">
               {productData.title}
             </div>
             <div className="product-price">
-              <span>₹10000</span>
-              ₹{productData.price}
+              <span>$1000</span>
+              ${productData.price}
             </div>
             <p className="product-des">
               {productData.description}
@@ -117,12 +126,28 @@ const addTowishListHandler = async (product) => {
             {!productData.stock?<span className="outOfStockTextShow">Out of stock</span>:null}
             <div className="product-card-btn-cont">
               <input type="text" placeholder="1" />
-              <span onClick={()=>addToCartHandler(productData)}>add to cart</span>
+              {productData.stock?
+                !cartProduct.some((data) => data._id === productData._id)?
+                <span 
+                onClick={debounceCartData}
+              >add to cart</span>:
+              <span>Item added in cart</span>
+              :
+              <span>Out Of Stock</span>
+              }
             </div>
-            <div className="add-to-wishlist" onClick={()=>addTowishListHandler(productData)}>
+            {
+              !wishListProduct.some(item=>item._id === productData._id)?
+              <div className="add-to-wishlist" onClick={debounceWishListData }>
               <img src="/images/like.png" alt="heart" />
               add to wishlist
+            </div>:
+            <div className="add-to-wishlist" onClick={()=>navigate('/wishlist')}>
+              <img src="/images/check-mark.png" alt="heart" />
+              Go to Wishlist
             </div>
+            }
+            
           </div>
         </div>
         <div className="product-tags">

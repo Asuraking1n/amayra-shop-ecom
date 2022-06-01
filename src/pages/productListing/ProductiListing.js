@@ -63,8 +63,16 @@ const ProductiListing = () => {
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US10' }) }}>us 10</span>
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US6' }) }}>us 6</span>
                                 <span onClick={() => { dispatch({ type: 'SORT', payload: 'US7' }) }}>us 7</span>
-                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'US8' }) }}>us 8</span>
-                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'US9' }) }}>us 9</span>
+                            </div>
+                        </div>
+                        <div className="size-filterr-cont">
+                            <div className="f-heading">FILTER BY RATING</div>
+                            <div className="size-cont">
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'size_1' }) }}>1</span>
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'size_2' }) }}>2</span>
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'size_3' }) }}>3</span>
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'size_4' }) }}>4</span>
+                                <span onClick={() => { dispatch({ type: 'SORT', payload: 'size_5' }) }}>5</span>
                             </div>
                         </div>
                         <div className="size-filterr-cont">

@@ -10,6 +10,7 @@
     "bcryptjs": "^2.4.3",
     "dayjs": "^1.10.7",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "miragejs": "^0.1.41",
     "mockman-js": "^1.0.5",
     "react": "^17.0.2",

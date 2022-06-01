@@ -30,6 +30,16 @@ const FilterData = (arr, type) => {
             return [...arr].sort((a, b) => b.price - a.price)
         case 'LOW_TO_HIGH':
             return [...arr].sort((a, b) => a.price - b.price)
+        case 'size_1':
+            return [...arr].filter((val) => val.rating === 1)
+        case 'size_2':
+            return [...arr].filter((val) => val.rating === 2)
+        case 'size_3':
+            return [...arr].filter((val) => val.rating === 3)
+        case 'size_4':
+            return [...arr].filter((val) => val.rating === 4)
+        case 'size_5':
+            return [...arr].filter((val) => val.rating === 5)
         default:
             return arr
     }

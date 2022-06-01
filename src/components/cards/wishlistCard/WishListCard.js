@@ -5,9 +5,10 @@ import { useWishlist } from "../../../context/wishlist-context";
 import { ToastContainer, toast } from 'react-toastify';
 import addToListService from "../../../services/addToListService";
 import 'react-toastify/dist/ReactToastify.css';
+import { debounce } from "lodash";
 import { DeleteListService } from "../../../services/DeleteListService";
 const WishListCard = (props) => {
-  const { setCartProduct } = useCart();
+  const {cartProduct, setCartProduct } = useCart();
   const token = localStorage.getItem("token");
   const {setWishListProduct} = useWishlist()
 
@@ -32,7 +33,9 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
   progress: undefined,
   });
 
-
+  const debounceCartData = debounce(()=>{
+    token&& addToCartHandler(props.item)
+},250)
 
   return (
     <>
@@ -67,11 +70,19 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
           <span>
             {props.item.stock ? <p style={{color:'green'}}>In Stock</p> : <p style={{color:'red'}}>Out of Stock</p>}
           </span>
-          <span
-            onClick={() => addToCartHandler(props.item)}
+          {
+            props.item.stock?
+            !cartProduct.some((data) => data._id === props.item._id)?
+            <span
+            onClick={debounceCartData }
           >
             Add to cart
-          </span>
+          </span>:
+          <span>Added in Cart</span>
+          :
+          <span>Out Of Stock</span>
+          }
+          
         </div>
       </div>
     </>
