@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import "./homepage.css"
 import BodySection from "../../components/bodySection/BodySection"
 import TiltCard from '../../components/cards/tiltCard/TiltCard'
@@ -9,18 +9,10 @@ import BestSelling from '../../components/bestSelling/BestSelling'
 import Footer from '../../components/footer/Footer'
 import Insta from '../../components/instagram/Insta'
 const Homepage = () => {
-  const [cursorX,setCursorX]=useState()
-  const [cursorY,setCursorY]=useState()
-  window.addEventListener('mousemove',e=>{
-    setCursorX(e.pageX)
-    setCursorY(e.pageY)
-  })
+
   return (
     <>
-        <div className="cursor" style={{
-        left:cursorX + 'px',
-        top:cursorY + 'px'
-      }}></div>
+        
         <BodySection/>
         <div className="tilt-card-section">
         <TiltCard delay={2} itemCount={4} itemName={"men's jacket"} imgSrc={"/images/category/jacket.jpg"}/>

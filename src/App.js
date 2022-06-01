@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect } from "react";
+import {useEffect } from "react";
 import Login from "./pages/log-reg/Login";
 import Register from "./pages/log-reg/Register";
 import Homepage from "./pages/homePage/Homepage";
@@ -60,6 +60,7 @@ function App() {
                 rtl={false}
                 
             />
+            
     </>
   );
 }

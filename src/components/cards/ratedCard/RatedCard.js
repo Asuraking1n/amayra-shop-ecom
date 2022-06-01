@@ -60,7 +60,7 @@ const debounceWishListData = debounce(()=>{
                         ) : null}
                     </div></Link>
                 <div className="rated-card-content">
-                    <StarRating />
+                    <StarRating rateCount={props.product.rating}/>
                     <div className="card-content-type">{props.product.type}</div>
                     <div className="card-content-name-like">
                         <Link

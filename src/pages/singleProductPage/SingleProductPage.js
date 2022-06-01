@@ -112,7 +112,7 @@ const debounceWishListData = debounce(()=>{
               BACK
             </Link>
             </div>
-            <StarRate />
+            <StarRate rateCount={productData.rating}/>
             <div className="product-name">
               {productData.title}
             </div>
