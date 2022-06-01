@@ -1,10 +1,10 @@
-import React from "react";
 import "./pricecard.css";
 import { Link,useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCart } from "../../../context/cart-context";
 import { useWishlist } from "../../../context/wishlist-context";
 import addToListService from "../../../services/addToListService";
+import { debounce } from "lodash";
 const RatedCard = (props) => {
     const { cartProduct, setCartProduct } = useCart()
     const token = localStorage.getItem("token");
@@ -21,6 +21,14 @@ const RatedCard = (props) => {
         const response = await addToListService('wishlist',product,token)
         setWishListProduct(response.data.wishlist)
     }
+
+    const debounceCartData = debounce(()=>{
+            token? addToCartHandler(props.product): navigate('/login')
+        },200)
+    
+    const debounceWishListData = debounce(()=>{
+            token? addTowishListHandler(props.product):itemAddNotification('Please Login') && navigate('/login')
+        },200)      
 
     return (
         <>
@@ -50,7 +58,7 @@ const RatedCard = (props) => {
                             <img
                                 src="/images/like.png"
                                 alt="like"
-                                onClick={() => token? addTowishListHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
+                                onClick={debounceWishListData}
                             />:
                             <img
                                 src="/images/check-mark.png"
@@ -69,7 +77,7 @@ const RatedCard = (props) => {
                                 <>
                                     <div
                                         className="card-animated-btn"
-                                        onClick={() => token? addToCartHandler(props.product): navigate('/login')}
+                                        onClick={debounceCartData}
                                     >
                                         $ {props.product.price}.00
                                     </div>
@@ -80,7 +88,7 @@ const RatedCard = (props) => {
                         <>
                             <div
                                 className="card-animated-btn"
-                                onClick={() => token? addToCartHandler(props.product): navigate('/login')}
+                                onClick={debounceCartData}
                             >
                                 $ {props.product.price}.00
                             </div>

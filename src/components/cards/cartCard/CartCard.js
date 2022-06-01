@@ -36,6 +36,8 @@ const CartCard = (props) => {
     setCartProduct(response.data.cart)
     
   }
+
+
   return (
     <>
       <div className="Cart-card-cont">

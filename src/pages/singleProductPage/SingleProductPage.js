@@ -9,6 +9,7 @@ import {useParams,Link,useNavigate} from 'react-router-dom'
 import { useWishlist } from "../../context/wishlist-context";
 import "./singlepage.css";
 import axios from "axios";
+import { debounce } from "lodash";
 import addToListService from "../../services/addToListService";
 import { useCart } from "../../context/cart-context";
 const SingleProductPage = () => {
@@ -48,7 +49,13 @@ const addTowishListHandler = async (product) => {
     val = e.target.value
     setReviewData({...reviewData,[name]:val})
   }
-  
+  const debounceCartData = debounce(()=>{
+    token? addToCartHandler(productData) && notify('Item added to cart'): navigate('/login')
+},250)
+
+const debounceWishListData = debounce(()=>{
+  token ? addTowishListHandler(productData) && notify('item added to Wishlist'):navigate('/login')
+},250) 
 
   return (
     <>{!productData?
@@ -122,7 +129,7 @@ const addTowishListHandler = async (product) => {
               {productData.stock?
                 !cartProduct.some((data) => data._id === productData._id)?
                 <span 
-                onClick={() => token? addToCartHandler(productData) && notify('Item added to cart'): navigate('/login')}
+                onClick={debounceCartData}
               >add to cart</span>:
               <span>Item added in cart</span>
               :
@@ -131,7 +138,7 @@ const addTowishListHandler = async (product) => {
             </div>
             {
               !wishListProduct.some(item=>item._id === productData._id)?
-              <div className="add-to-wishlist" onClick={()=>addTowishListHandler(productData) && notify('item added to Wishlist')}>
+              <div className="add-to-wishlist" onClick={debounceWishListData }>
               <img src="/images/like.png" alt="heart" />
               add to wishlist
             </div>:

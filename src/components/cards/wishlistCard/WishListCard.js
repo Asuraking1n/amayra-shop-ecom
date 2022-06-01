@@ -5,6 +5,7 @@ import { useWishlist } from "../../../context/wishlist-context";
 import { ToastContainer, toast } from 'react-toastify';
 import addToListService from "../../../services/addToListService";
 import 'react-toastify/dist/ReactToastify.css';
+import { debounce } from "lodash";
 import { DeleteListService } from "../../../services/DeleteListService";
 const WishListCard = (props) => {
   const {cartProduct, setCartProduct } = useCart();
@@ -32,7 +33,9 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
   progress: undefined,
   });
 
-
+  const debounceCartData = debounce(()=>{
+    token&& addToCartHandler(props.item)
+},250)
 
   return (
     <>
@@ -71,7 +74,7 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
             props.item.stock?
             !cartProduct.some((data) => data._id === props.item._id)?
             <span
-            onClick={() => addToCartHandler(props.item)}
+            onClick={debounceCartData }
           >
             Add to cart
           </span>:

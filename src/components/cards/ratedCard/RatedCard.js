@@ -1,4 +1,4 @@
-import {useState} from "react";
+
 import "./ratedcard.css";
 import StarRating from "./StarRate";
 import { Link,  useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import addToListService from "../../../services/addToListService";
 import { useWishlist } from "../../../context/wishlist-context";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { debounce } from "lodash";
 const RatedCard = (props) => {
     const navigate = useNavigate()
     const { cartProduct, setCartProduct } = useCart()
-    const [inWishlist,setInWishlist] = useState(false)
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
     const { wishListProduct,setWishListProduct } = useWishlist()
@@ -35,7 +35,13 @@ const RatedCard = (props) => {
         draggable: true,
         progress: undefined,
     });
+    const debounceCartData = debounce(()=>{
+        token? addToCartHandler(props.product): navigate('/login')
+    },250)
 
+const debounceWishListData = debounce(()=>{
+        token? addTowishListHandler(props.product):itemAddNotification('Please Login') && navigate('/login')
+    },250) 
 
 
 
@@ -65,11 +71,11 @@ const RatedCard = (props) => {
                         </Link>
                         <div className="card-like">
                         {
-                            !wishListProduct.some(item=>item._id === props.product._id) && !inWishlist ?
+                            !wishListProduct.some(item=>item._id === props.product._id)  ?
                             <img
                                 src="/images/like.png"
                                 alt="like"
-                                onClick={() => token? addTowishListHandler(props.product) || setInWishlist(true):itemAddNotification('Please Login') && navigate('/login')}
+                                onClick={debounceWishListData}
                             />:
                             <img
                                 src="/images/check-mark.png"
@@ -89,7 +95,7 @@ const RatedCard = (props) => {
                                 <>
                                     <div
                                         className="card-animated-btn"
-                                        onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
+                                        onClick={debounceCartData}
                                     >
                                         $ {props.product.price}.00
                                     </div>
@@ -100,7 +106,7 @@ const RatedCard = (props) => {
                         <>
                             <div
                                 className="card-animated-btn"
-                                onClick={() => token? addToCartHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
+                                onClick={debounceCartData}
                             >
                                 $ {props.product.price}.00
                             </div>
