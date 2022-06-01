@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import "./ratedcard.css";
 import StarRating from "./StarRate";
 import { Link,  useNavigate } from "react-router-dom";
@@ -10,9 +10,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const RatedCard = (props) => {
     const navigate = useNavigate()
     const { cartProduct, setCartProduct } = useCart()
+    const [inWishlist,setInWishlist] = useState(false)
     const token = localStorage.getItem("token");
     const isoutOfStock = props.product.stock;
-    const { setWishListProduct } = useWishlist()
+    const { wishListProduct,setWishListProduct } = useWishlist()
 
     const addToCartHandler = async (product) => {
         const response = await addToListService('cart',product,token)
@@ -63,12 +64,19 @@ const RatedCard = (props) => {
                             <div className="card-content-name">{props.product.title}</div>
                         </Link>
                         <div className="card-like">
+                        {
+                            !wishListProduct.some(item=>item._id === props.product._id) && !inWishlist ?
                             <img
-                                src="images/like.png"
+                                src="/images/like.png"
                                 alt="like"
-                                onClick={() => token? addTowishListHandler(props.product):itemAddNotification('Please Login') && navigate('/login')}
-
+                                onClick={() => token? addTowishListHandler(props.product) || setInWishlist(true):itemAddNotification('Please Login') && navigate('/login')}
+                            />:
+                            <img
+                                src="/images/check-mark.png"
+                                alt="like"
                             />
+                        }
+                            
                         </div>
                     </div>
                     {
@@ -76,7 +84,7 @@ const RatedCard = (props) => {
                         cartProduct ? (
                         <>
                             {cartProduct.some((item) => item._id === props.product._id) ? (
-                                <div className="addedToCart">Item Added In Cart</div>
+                                <div className="addedToCart" onClick={()=>navigate('/cart')}>GO TO CART</div>
                             ) : (
                                 <>
                                     <div
@@ -98,13 +106,11 @@ const RatedCard = (props) => {
                             </div>
                         </>
                     ):
-                    <div className="card-animated-btn"> Out of Stock</div>
+                    <div style={{color:'red',marginTop:'1rem'}} > Out of Stock</div>
                     }
                 </div>
             </div>
-
         </>
-
     );
 };
 

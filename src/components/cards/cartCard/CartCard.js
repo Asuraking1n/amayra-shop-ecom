@@ -30,11 +30,11 @@ const CartCard = (props) => {
     setQunatity(response.data.cart.find((val) => val._id === product._id).qty);
     setCartProduct(response.data.cart)
   }
-
   const decItem = async(product) => {
     const response = await IncDecService('decrement',product._id,token)
     setQunatity(response.data.cart.find((val) => val._id === product._id).qty);
     setCartProduct(response.data.cart)
+    
   }
   return (
     <>
@@ -62,9 +62,10 @@ const CartCard = (props) => {
         <div className="Cart-card-price">
           <span>$ {props.item.price}</span>
           <div className="item-quantity">
-            <span onClick={() => incItem(props.item) }>+</span>
+          <span onClick={() => {quantity <= 1?deleteToCart(props.item): decItem(props.item)} }>-</span>
             {quantity}
-            <span onClick={() => decItem(props.item) }>-</span>
+            <span onClick={() => incItem(props.item) }>+</span>
+            
           </div>
           {quantity > -1 ? <span>$ {props.item.price * quantity}.00</span> : <div className="negQuantity">Quantity Can't be less than 0</div> && setQunatity(0)}
         </div>

@@ -67,13 +67,17 @@ const itemDltNotification = () => toast.success('🦄 Item Deleted', {
           <span>
             {props.item.stock ? <p style={{color:'green'}}>In Stock</p> : <p style={{color:'red'}}>Out of Stock</p>}
           </span>
-          {!cartProduct.some((data) => data._id === props.item._id)?
+          {
+            props.item.stock?
+            !cartProduct.some((data) => data._id === props.item._id)?
             <span
             onClick={() => addToCartHandler(props.item)}
           >
             Add to cart
           </span>:
           <span>Added in Cart</span>
+          :
+          <span>Out Of Stock</span>
           }
           
         </div>

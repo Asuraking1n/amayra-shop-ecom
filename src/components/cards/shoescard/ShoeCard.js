@@ -11,11 +11,11 @@ const ShoeCard = (props) => {
                 <img src={props.imgSrc} alt="shoe" />
             </div>
             <div className="shoe-price">
-                <span>₹{props.oldPrice}.00</span>
-                ₹{props.newPrice}.00
+                <span>${props.oldPrice}.00</span>
+                ${props.newPrice}.00
             </div>
             <div className="shoe-add-cart-btn">
-                add to cart
+                Go To Shop
             </div>
             
         </div>
