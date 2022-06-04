@@ -21,6 +21,12 @@
     color: #a8e8e2;
     width: 100%;
 }
+.product-active{
+    background-color: #a8e8e2;
+}
+.cat-active{
+    border-bottom: 2px solid #a8e8e2;
+}
 .shop-header-category{
     width: 100%;
     display: flex;
@@ -109,7 +115,6 @@
 
 .size-cont span{
     box-shadow: 0 0 0 1px rgb(0 0 0 / 20%) inset;
-    color: rgba(0,0,0,.5);
     padding: 6px 8px;
     font-size: 14px;
     font-weight: 500;
@@ -121,9 +126,10 @@
     margin:.3rem;
     cursor: pointer;
 }
-.size-cont span:hover{
+
+.size-active{
     background-color: #000;
-    color: #fff;
+    color:#fff ;
 }
 .product-filterr-cont{
     width: 100%;
